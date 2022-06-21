@@ -1,0 +1,19 @@
+.styling-section {
+  // .styling-section__form
+  width: 100%;
+}
+.form {
+  background-color: rgb(117, 68, 92);
+  width: auto;
+  min-width: fit-content;
+  padding: 10px;
+  &__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 5px;
+  }
+
+  &__field {
+    // width: 30%;
+  }
+}

@@ -1,0 +1,35 @@
+.page {
+  // .page__container
+  width: 100%;
+  height: 95vh;
+  &__container {
+    padding: 20px 50px;
+    height: 90vh;
+  }
+}
+.sections {
+  display: grid;
+  grid-template:
+    "styling styling drop drop drop"
+    "drag drag drop drop drop";
+  width: 100%;
+  height: 100%;
+  // .sections__styling
+
+  &__styling {
+    grid-area: styling;
+  }
+
+  // .sections__drop
+
+  &__drop {
+    grid-area: drop;
+    min-width: 40vw;
+  }
+
+  // .sections__drag
+
+  &__drag {
+    grid-area: drag;
+  }
+}
