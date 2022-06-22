@@ -18,8 +18,10 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { appReducer } from './State/app.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppReducer } from './Store/App.State';
+import { HttpClientModule } from '@angular/common/http';
+import { ElementsEffects } from './State/elements.effects';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     DragDropModule,
     SharedModule,
-    StoreModule.forRoot(appReducer),
-    EffectsModule.forRoot([]),
+    HttpClientModule,
+    EffectsModule.forRoot([ElementsEffects]),
+    StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

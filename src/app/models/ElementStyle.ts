@@ -1,4 +1,6 @@
-export interface formField {
+export interface ElementStyle {
+  id: string;
+  title: string;
   placeholderText: string;
   width: string;
   height: string;

@@ -1,4 +1,16 @@
-<mat-form-field appearance="fill" class="form-field">
+<!-- <mat-form-field appearance="fill" class="form-field" cdkDrag>
   <mat-label>Input</mat-label>
-  <input matInput />
-</mat-form-field>
+  <input matInput [placeholder]="elementStyle.placeholderText"
+    [required]="elementStyle.required"
+    [ngStyle]="setInputStyle()" />
+</mat-form-field> -->
+
+<div cdkDrag>
+  <input
+    type="text"
+    [placeholder]="elementStyle.placeholderText"
+    [required]="elementStyle.required"
+    #element
+    [ngStyle]="setInputStyle()"
+  />
+</div>

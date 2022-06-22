@@ -1,3 +1,6 @@
-<div cdkDrag>
-  <app-input></app-input>
+<div cdkDropList [cdkDropListData]="elements">
+  <app-input
+    *ngFor="let element of elements"
+    [elementStyle]="element"
+  ></app-input>
 </div>

@@ -1,15 +1,8 @@
 <div class="page">
   <div class="page__container">
-    <div class="page__sections sections">
+    <div class="page__sections sections" cdkDropListGroup>
       <app-styling-section class="sections__styling"></app-styling-section>
-      <app-drop-section
-        cdkDropListGroup
-        class="sections__drop"
-        cdkDropList
-        [cdkDropListData]="elements"
-        [elements]="elements"
-        (cdkDropListDropped)="drop($event)"
-      ></app-drop-section>
+      <app-drop-section class="sections__drop"></app-drop-section>
       <app-drag-section class="sections__drag"></app-drag-section>
     </div>
   </div>

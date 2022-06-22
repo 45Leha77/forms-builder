@@ -1,0 +1,16 @@
+{
+  "elements": [
+    {
+  "id": "1",
+  "title": "input",
+  "placeholderText": "Put some text here db",
+  "borderStyle": "dotted",
+  "color": "#050505",
+  "fontSize": "16",
+  "fontWeight": "500",
+  "height": "100",
+  "width": "200",
+  "required": false
+}
+  ]
+}

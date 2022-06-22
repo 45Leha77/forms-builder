@@ -1,7 +1,16 @@
 <div class="drop-section">
-  <div class="drop-section__drop-field drop-field">
-    <div class="drop-field__element" *ngFor="let element of elements">
-      {{ element }}
-    </div>
+  <div
+    class="drop-section__drop-field drop-field"
+    cdkDropList
+    [cdkDropListData]="elements"
+    (cdkDropListDropped)="drop($event)"
+  >
+    <input
+      class="drop-field__element"
+      [placeholder]="elementStyle.placeholderText"
+      [required]="elementStyle.required"
+      *ngFor="let elementStyle of elements"
+      [ngStyle]="setInputStyle(elementStyle)"
+    />
   </div>
 </div>
