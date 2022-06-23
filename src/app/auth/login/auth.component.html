@@ -1,0 +1,47 @@
+<div class="auth-page">
+  <div class="auth-page__container">
+    <form
+      class="auth-page__form form"
+      [formGroup]="authForm"
+      (ngSubmit)="onFormSubmit()"
+    >
+      <h1>Authorization</h1>
+
+      <mat-form-field appearance="fill" class="form__field">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          formControlName="email"
+          required
+        />
+        <mat-error> Wrong email format </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form__field">
+        <mat-label>Enter your password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          required
+          [type]="hide ? 'password' : 'text'"
+        />
+        <mat-error>password must contain at least 6 characters</mat-error>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          type="button"
+        >
+          <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" [disabled]="!authForm.valid">
+        Log In
+      </button>
+    </form>
+  </div>
+</div>

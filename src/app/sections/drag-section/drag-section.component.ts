@@ -7,36 +7,22 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { interval } from 'rxjs';
 import { ElementStyle } from 'src/app/models/ElementStyle';
-import { getElements } from 'src/app/State/elements.selector';
+import { changeCurrentId } from 'src/app/sections/State/elements.actions';
+import { getElements } from 'src/app/sections/State/elements.selector';
 
 @Component({
   selector: 'app-drag-section',
   templateUrl: './drag-section.component.html',
   styleUrls: ['./drag-section.component.scss'],
 })
-export class DragSectionComponent implements AfterViewInit, OnInit, OnDestroy {
-  // @ViewChild('input') input!: ElementRef;
-
-  elements!: ElementStyle[];
+export class DragSectionComponent {
+  elements$ = this.store.select(getElements);
 
   constructor(private store: Store) {}
 
-  ngOnInit(): void {
-    this.subscribeToElements();
-  }
-
-  subscribeToElements() {
-    return this.store.select(getElements).subscribe((elements) => {
-      this.elements = elements;
-    });
-  }
-
-  ngAfterViewInit(): void {
-    // console.log(this.input.nativeElement);
-  }
-
-  ngOnDestroy(): void {
-    this.subscribeToElements().unsubscribe();
+  startEdit(id: string) {
+    this.store.dispatch(changeCurrentId({ id }));
   }
 }

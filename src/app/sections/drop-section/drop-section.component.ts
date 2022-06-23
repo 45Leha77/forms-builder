@@ -18,7 +18,11 @@ export class DropSectionComponent {
       event.previousIndex,
       event.currentIndex
     );
-    // console.log(event.container.element.nativeElement);
+    // console.log(
+    //   event.previousContainer.element.nativeElement.children[
+    //     event.previousIndex
+    //   ]
+    // );
   }
 
   setInputStyle(elementStyle: ElementStyle) {

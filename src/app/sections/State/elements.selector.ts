@@ -1,5 +1,6 @@
 import { ElementsState } from './elements.state';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { ElementStyle } from '../../models/ElementStyle';
 
 export const ELEMENTS_STATE_NAME = 'elements';
 
@@ -10,11 +11,16 @@ export const getElements = createSelector(getElementsState, (state) => {
   return state.elementsStyle;
 });
 
+export const getCurrentElementId = createSelector(getElementsState, (state) => {
+  return state.currentElementId;
+});
+
 export const getElementStyleById = createSelector(
-  getElementsState,
-  (state: any, props: any) => {
-    return state.elementsStyle.find((element: any) => {
-      return element.id === props.id;
+  getCurrentElementId,
+  getElements,
+  (id: string | null, elements: ElementStyle[]) => {
+    return elements.find((element: ElementStyle) => {
+      return element.id === id;
     });
   }
 );

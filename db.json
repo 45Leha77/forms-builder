@@ -1,16 +1,35 @@
 {
   "elements": [
     {
-  "id": "1",
-  "title": "input",
-  "placeholderText": "Put some text here db",
-  "borderStyle": "dotted",
-  "color": "#050505",
-  "fontSize": "16",
-  "fontWeight": "500",
-  "height": "100",
-  "width": "200",
-  "required": false
-}
+      "id": "1",
+      "title": "input",
+      "placeholderText": "Put some text here db",
+      "borderStyle": "dotted",
+      "color": "#050505",
+      "fontSize": "16",
+      "fontWeight": "500",
+      "height": "100",
+      "width": "200",
+      "required": false
+    },
+    {
+      "id": "2",
+      "title": "textarea",
+      "placeholderText": "Put some text here db",
+      "borderStyle": "dotted",
+      "color": "#050505",
+      "fontSize": "20",
+      "fontWeight": "300",
+      "height": "150",
+      "width": "250",
+      "required": false
+    }
+  ],
+  "users": [
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$v30iQLMtm8MyBKCk1WOYBOUiHvXDA4MsiAezqw9PO2TlmgPqxNX8i",
+      "id": 1
+    }
   ]
 }

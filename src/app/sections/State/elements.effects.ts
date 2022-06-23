@@ -1,17 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
 import { map, mergeMap } from 'rxjs';
-import { HttpService } from '../services/http.service';
+import { HttpService } from 'src/app/services/Http.service';
 import { loadElements, loadElementsSuccess } from './elements.actions';
 
 @Injectable({ providedIn: 'root' })
 export class ElementsEffects {
-  constructor(
-    private actions$: Actions,
-    // private store: Store,
-    private httpService: HttpService
-  ) {}
+  constructor(private actions$: Actions, private httpService: HttpService) {}
 
   loadElements$ = createEffect(() => {
     return this.actions$.pipe(

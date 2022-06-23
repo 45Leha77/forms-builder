@@ -1,5 +1,9 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { editElement, loadElementsSuccess } from './elements.actions';
+import {
+  changeCurrentId,
+  editElement,
+  loadElementsSuccess,
+} from './elements.actions';
 import { ElementsState, initialState } from './elements.state';
 
 const _elementsReducer = createReducer(
@@ -19,6 +23,12 @@ const _elementsReducer = createReducer(
     return {
       ...state,
       elementsStyle: action.elements,
+    };
+  }),
+  on(changeCurrentId, (state, action) => {
+    return {
+      ...state,
+      currentElementId: action.id,
     };
   })
 );
