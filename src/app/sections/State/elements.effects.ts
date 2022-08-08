@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap } from 'rxjs';
-import { HttpService } from 'src/app/services/Http.service';
+import { HttpService } from 'src/app/services/http.service';
 import { loadElements, loadElementsSuccess } from './elements.actions';
 
 @Injectable({ providedIn: 'root' })

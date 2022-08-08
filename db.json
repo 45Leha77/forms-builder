@@ -3,25 +3,37 @@
     {
       "id": "1",
       "title": "input",
-      "placeholderText": "Put some text here db",
+      "placeholderText": "Placeholder",
       "borderStyle": "dotted",
       "color": "#050505",
       "fontSize": "16",
       "fontWeight": "500",
-      "height": "100",
-      "width": "200",
+      "height": "80",
+      "width": "150",
       "required": false
     },
     {
       "id": "2",
       "title": "textarea",
-      "placeholderText": "Put some text here db",
+      "placeholderText": "Placeholder",
       "borderStyle": "dotted",
       "color": "#050505",
       "fontSize": "20",
       "fontWeight": "300",
-      "height": "150",
-      "width": "250",
+      "height": "100",
+      "width": "200",
+      "required": false
+    },
+    {
+      "id": "3",
+      "title": "button",
+      "placeholderText": "Button",
+      "borderStyle": "none",
+      "color": "#050505",
+      "fontSize": "20",
+      "fontWeight": "300",
+      "height": "50",
+      "width": "150",
       "required": false
     }
   ],

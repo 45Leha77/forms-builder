@@ -19,6 +19,7 @@ import { DropSectionComponent } from './drop-section/drop-section.component';
 import { SectionsRoutingModule } from './sections-routing.module';
 import { SectionsComponent } from './sections.component';
 import { StylingSectionComponent } from './styling-section/styling-section.component';
+import { ReactiveComponentModule } from '@ngrx/component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { StylingSectionComponent } from './styling-section/styling-section.compo
     SectionsRoutingModule,
     StoreModule.forFeature(ELEMENTS_STATE_NAME, ElementsReducer),
     EffectsModule.forFeature([ElementsEffects]),
+    ReactiveComponentModule,
   ],
   declarations: [
     DragSectionComponent,

@@ -5,12 +5,33 @@
     [cdkDropListData]="elements"
     (cdkDropListDropped)="drop($event)"
   >
-    <input
-      class="drop-field__element"
-      [placeholder]="elementStyle.placeholderText"
-      [required]="elementStyle.required"
-      *ngFor="let elementStyle of elements"
-      [ngStyle]="setInputStyle(elementStyle)"
-    />
+    <ng-container *ngFor="let element of elements">
+      <input
+        *ngIf="element.title === 'input'"
+        class="drop-field__element"
+        [placeholder]="element.placeholderText"
+        [required]="element.required"
+        [ngStyle]="setInputStyle(element)"
+        cdkDrag
+      />
+      <button
+        mat-raised-button
+        color="accent"
+        *ngIf="element.title === 'button'"
+        class="drop-field__element"
+        [ngStyle]="setInputStyle(element)"
+        cdkDrag
+      >
+        {{ element.placeholderText }}
+      </button>
+      <textarea
+        *ngIf="element.title === 'textarea'"
+        class="drop-field__element"
+        [ngStyle]="setInputStyle(element)"
+        [placeholder]="element.placeholderText"
+        [required]="element.required"
+        cdkDrag
+      ></textarea>
+    </ng-container>
   </div>
 </div>

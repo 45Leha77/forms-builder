@@ -1,14 +1,5 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
-import { Store } from '@ngrx/store';
-import { interval } from 'rxjs';
-import { ElementStyle } from 'src/app/models/ElementStyle';
+import { Component } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { changeCurrentId } from 'src/app/sections/State/elements.actions';
 import { getElements } from 'src/app/sections/State/elements.selector';
 
@@ -18,7 +9,7 @@ import { getElements } from 'src/app/sections/State/elements.selector';
   styleUrls: ['./drag-section.component.scss'],
 })
 export class DragSectionComponent {
-  elements$ = this.store.select(getElements);
+  elements$ = this.store.pipe(select(getElements));
 
   constructor(private store: Store) {}
 

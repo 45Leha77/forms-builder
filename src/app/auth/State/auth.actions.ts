@@ -1,9 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 import { AuthResponse } from 'src/app/models/AuthResponse';
-import { User } from '../../models/User';
 
 export const LOGIN_START = '[Auth] login start';
 export const LOGIN_SUCCESS = '[Auth] login success';
+export const LOGIN_AUTO = '[Auth] login auto';
 
 export const loginStart = createAction(
   LOGIN_START,
@@ -14,3 +14,5 @@ export const loginSuccess = createAction(
   LOGIN_SUCCESS,
   props<{ response: AuthResponse }>()
 );
+
+export const loginAuto = createAction(LOGIN_AUTO);

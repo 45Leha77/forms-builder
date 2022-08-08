@@ -1,11 +1,7 @@
-<div
-  cdkDropList
-  *ngIf="elements$ | async as elements"
-  [cdkDropListData]="elements"
->
-  <app-input
+<div cdkDropList *ngrxLet="elements$ as elements" [cdkDropListData]="elements">
+  <custom-form-element
     *ngFor="let element of elements"
     [elementStyle]="element"
     (click)="startEdit(element.id)"
-  ></app-input>
+  ></custom-form-element>
 </div>

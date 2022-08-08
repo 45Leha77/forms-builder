@@ -1,4 +1,8 @@
-import { CdkDragDrop, copyArrayItem } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  copyArrayItem,
+  moveItemInArray,
+} from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ElementStyle } from 'src/app/models/ElementStyle';
 
@@ -12,17 +16,20 @@ export class DropSectionComponent {
   elements: ElementStyle[] = [];
 
   drop(event: CdkDragDrop<any[]>) {
-    copyArrayItem(
-      event.previousContainer.data,
-      event.container.data,
-      event.previousIndex,
-      event.currentIndex
-    );
-    // console.log(
-    //   event.previousContainer.element.nativeElement.children[
-    //     event.previousIndex
-    //   ]
-    // );
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      copyArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
   }
 
   setInputStyle(elementStyle: ElementStyle) {
