@@ -1,15 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ElementStyle } from 'src/app/models/ElementStyle';
 
 @Component({
   selector: 'app-textarea',
   templateUrl: './textarea.component.html',
   styleUrls: ['./textarea.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextareaComponent {
-  @Input() elementStyle!: ElementStyle;
+  @Input() public elementStyle!: ElementStyle;
 
-  setInputStyle() {
+  public setInputStyle() {
     let styles = {
       color: `${this.elementStyle.color}`,
       width: `${this.elementStyle.width}px`,

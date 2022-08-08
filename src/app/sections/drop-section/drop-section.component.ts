@@ -13,9 +13,9 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropSectionComponent {
-  elements: ElementStyle[] = [];
+  public elements: ElementStyle[] = [];
 
-  drop(event: CdkDragDrop<any[]>) {
+  public drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -32,7 +32,7 @@ export class DropSectionComponent {
     }
   }
 
-  setInputStyle(elementStyle: ElementStyle) {
+  public setInputStyle(elementStyle: ElementStyle) {
     let styles = {
       color: `${elementStyle.color}`,
       width: `${elementStyle.width}px`,

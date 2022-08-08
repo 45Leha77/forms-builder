@@ -8,9 +8,9 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomFormElementComponent {
-  @Input() elementStyle!: ElementStyle;
+  @Input() public elementStyle!: ElementStyle;
 
-  setInputStyle() {
+  public setInputStyle() {
     let styles = {
       color: `${this.elementStyle.color}`,
       width: `${this.elementStyle.width}px`,

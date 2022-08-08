@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ElementsService {
-  get allBorderStyles() {
+  get allBorderStyles(): string[] {
     return [
       'none',
       'hidden',
@@ -17,7 +17,7 @@ export class ElementsService {
     ];
   }
 
-  get allFontWeights() {
+  get allFontWeights(): string[] {
     return [
       'normal',
       'bold',

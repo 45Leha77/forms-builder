@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ElementStyle } from 'src/app/models/ElementStyle';
 
 @Component({
@@ -12,9 +8,9 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input() elementStyle!: ElementStyle;
+  @Input() public elementStyle!: ElementStyle;
 
-  setInputStyle() {
+  public setInputStyle() {
     let styles = {
       color: `${this.elementStyle.color}`,
       width: `${this.elementStyle.width}px`,

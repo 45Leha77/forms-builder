@@ -3,7 +3,6 @@
     type="text"
     [placeholder]="elementStyle.placeholderText"
     [required]="elementStyle.required"
-    #element
     [ngStyle]="setInputStyle()"
   />
 </div>
@@ -13,13 +12,12 @@
     type="text"
     [placeholder]="elementStyle.placeholderText"
     [required]="elementStyle.required"
-    #element
     [ngStyle]="setInputStyle()"
   ></textarea>
 </div>
 
 <div cdkDrag *ngIf="elementStyle.title === 'button'">
-  <button mat-raised-button color="accent" #element [ngStyle]="setInputStyle()">
+  <button mat-raised-button color="accent" [ngStyle]="setInputStyle()">
     {{ elementStyle.placeholderText }}
   </button>
 </div>

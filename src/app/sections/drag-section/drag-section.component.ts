@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { ElementStyle } from 'src/app/models/ElementStyle';
 import { changeCurrentId } from 'src/app/sections/State/elements.actions';
 import { getElements } from 'src/app/sections/State/elements.selector';
 
@@ -7,13 +9,16 @@ import { getElements } from 'src/app/sections/State/elements.selector';
   selector: 'app-drag-section',
   templateUrl: './drag-section.component.html',
   styleUrls: ['./drag-section.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DragSectionComponent {
-  elements$ = this.store.pipe(select(getElements));
+  public elements$: Observable<ElementStyle[]> = this.store.pipe(
+    select(getElements)
+  );
 
   constructor(private store: Store) {}
 
-  startEdit(id: string) {
+  public startEdit(id: string) {
     this.store.dispatch(changeCurrentId({ id }));
   }
 }

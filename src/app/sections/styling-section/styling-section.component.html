@@ -1,4 +1,4 @@
-<div class="styling-section">
+<div class="styling-section" *ngrxLet="elementStyle$ as elementStyle">
   <form
     class="styling-section__form form"
     [formGroup]="styleForm"
@@ -9,17 +9,14 @@
         <mat-label>Placeholder</mat-label>
         <input matInput formControlName="placeholderText" />
       </mat-form-field>
-
       <mat-form-field appearance="outline" class="form__field">
         <mat-label>Width</mat-label>
         <input matInput formControlName="width" />
       </mat-form-field>
-
       <mat-form-field appearance="outline" class="form__field">
         <mat-label>Height</mat-label>
         <input matInput formControlName="height" />
       </mat-form-field>
-
       <mat-form-field appearance="outline" class="form__field">
         <mat-label>Border style</mat-label>
         <mat-select formControlName="borderStyle">
@@ -30,12 +27,10 @@
           >
         </mat-select>
       </mat-form-field>
-
       <mat-form-field appearance="outline" class="form__field">
         <mat-label>Font size</mat-label>
         <input matInput formControlName="fontSize" />
       </mat-form-field>
-
       <mat-form-field appearance="outline" class="form__field">
         <mat-label>Font weight</mat-label>
         <mat-select formControlName="fontWeight">
