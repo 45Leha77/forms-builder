@@ -1,8 +1,9 @@
-<div cdkDrag>
-  <textarea
-    type="text"
-    [placeholder]="elementStyle.placeholderText"
-    [required]="elementStyle.required"
-    [ngStyle]="setInputStyle()"
-  ></textarea>
-</div>
+<textarea
+  *ngIf="element.title === 'textarea'"
+  class="drop-field__element"
+  [ngStyle]="setInputStyle()"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  cdkDrag
+  #textarea
+></textarea>

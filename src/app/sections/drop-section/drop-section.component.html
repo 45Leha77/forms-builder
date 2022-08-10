@@ -1,37 +1,34 @@
 <div class="drop-section">
-  <div
+  <form
     class="drop-section__drop-field drop-field"
     cdkDropList
     [cdkDropListData]="elements"
     (cdkDropListDropped)="drop($event)"
+    [formGroup]="customForm"
+    *ngIf="elements"
+    (ngSubmit)="onCustomFormSubmit()"
   >
-    <ng-container *ngFor="let element of elements">
-      <input
-        *ngIf="element.title === 'input'"
-        class="drop-field__element"
-        [placeholder]="element.placeholderText"
-        [required]="element.required"
-        [ngStyle]="setInputStyle(element)"
-        cdkDrag
-      />
-      <button
-        mat-raised-button
-        color="accent"
-        *ngIf="element.title === 'button'"
-        class="drop-field__element"
-        [ngStyle]="setInputStyle(element)"
+    <ng-container *ngFor="let element of elements; let i = index">
+      <app-dynamic-form-control
+        *ngIf="element.title !== 'button'"
+        [element]="element"
+        [index]="i"
+        [formControlName]="i"
         cdkDrag
       >
-        {{ element.placeholderText }}
-      </button>
-      <textarea
-        *ngIf="element.title === 'textarea'"
-        class="drop-field__element"
-        [ngStyle]="setInputStyle(element)"
-        [placeholder]="element.placeholderText"
-        [required]="element.required"
-        cdkDrag
-      ></textarea>
+      </app-dynamic-form-control>
+      <app-button
+        *ngIf="element.title === 'button'"
+        [element]="element"
+      ></app-button>
     </ng-container>
+  </form>
+  <div class="drop-section__control-buttons">
+    <button mat-raised-button color="warn" (click)="clearDropField()">
+      CLEAR
+    </button>
+    <button mat-raised-button color="primary" (click)="saveDropField()">
+      SAVE
+    </button>
   </div>
 </div>

@@ -8,16 +8,16 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextareaComponent {
-  @Input() public elementStyle!: ElementStyle;
+  @Input() public element!: ElementStyle;
 
   public setInputStyle() {
     let styles = {
-      color: `${this.elementStyle.color}`,
-      width: `${this.elementStyle.width}px`,
-      height: `${this.elementStyle.height}px`,
-      borderStyle: `${this.elementStyle.borderStyle}`,
-      fontSize: `${this.elementStyle.fontSize}px`,
-      fontWeight: `${this.elementStyle.fontWeight}`,
+      color: `${this.element.color}`,
+      width: `${this.element.width}px`,
+      height: `${this.element.height}px`,
+      borderStyle: `${this.element.borderStyle}`,
+      fontSize: `${this.element.fontSize}px`,
+      fontWeight: `${this.element.fontWeight}`,
     };
     return styles;
   }

@@ -6,8 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ButtonComponent } from './components/button/button.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
-import { CustomFormElementComponent } from './components/custom-form-element/custom-form-element.component';
 import { MatButtonModule } from '@angular/material/button';
+import { CustomFormElementComponent } from './components/custom-form-element/custom-form-element.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,6 @@ import { MatButtonModule } from '@angular/material/button';
     DragDropModule,
     MatButtonModule,
   ],
-  exports: [CustomFormElementComponent],
+  exports: [ButtonComponent, CustomFormElementComponent],
 })
 export class SharedModule {}

@@ -1,0 +1,18 @@
+<input
+  *ngIf="element.title === 'input'"
+  class="drop-field__element"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  [ngStyle]="setInputStyle(element)"
+  (change)="onChange(input.value)"
+  #input
+/>
+<textarea
+  *ngIf="element.title === 'textarea'"
+  class="drop-field__element"
+  [ngStyle]="setInputStyle(element)"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  (change)="onChange(textarea.value)"
+  #textarea
+></textarea>

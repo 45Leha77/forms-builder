@@ -1,5 +1,10 @@
-<div cdkDrag>
-  <button type="text" [ngStyle]="setInputStyle()">
-    {{ elementStyle.placeholderText }}
-  </button>
-</div>
+<button
+  mat-raised-button
+  color="accent"
+  class="drop-field__element"
+  [ngStyle]="setInputStyle()"
+  cdkDrag
+  (click)="onButtonClick()"
+>
+  {{ element.placeholderText }}
+</button>

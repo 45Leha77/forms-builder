@@ -1,5 +1,4 @@
 .page {
-  // .page__container
   width: 100%;
   height: 95vh;
   &__container {
@@ -14,20 +13,15 @@
     "drag drag drop drop drop";
   width: 100%;
   height: 100%;
-  // .sections__styling
 
   &__styling {
     grid-area: styling;
   }
 
-  // .sections__drop
-
   &__drop {
     grid-area: drop;
     min-width: 50vw;
   }
-
-  // .sections__drag
 
   &__drag {
     grid-area: drag;

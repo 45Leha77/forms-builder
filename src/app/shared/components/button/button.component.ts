@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { ElementStyle } from 'src/app/models/ElementStyle';
 
 @Component({
@@ -8,17 +14,22 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input() public elementStyle!: ElementStyle;
+  @Input() public element!: ElementStyle;
+  @Output() submit: EventEmitter<void> = new EventEmitter();
 
   public setInputStyle() {
     let styles = {
-      color: `${this.elementStyle.color}`,
-      width: `${this.elementStyle.width}px`,
-      height: `${this.elementStyle.height}px`,
-      borderStyle: `${this.elementStyle.borderStyle}`,
-      fontSize: `${this.elementStyle.fontSize}px`,
-      fontWeight: `${this.elementStyle.fontWeight}`,
+      color: `${this.element.color}`,
+      width: `${this.element.width}px`,
+      height: `${this.element.height}px`,
+      borderStyle: `${this.element.borderStyle}`,
+      fontSize: `${this.element.fontSize}px`,
+      fontWeight: `${this.element.fontWeight}`,
     };
     return styles;
+  }
+
+  public onButtonClick() {
+    return this.submit.emit();
   }
 }
