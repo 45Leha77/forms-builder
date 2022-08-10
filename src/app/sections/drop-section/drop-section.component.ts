@@ -3,7 +3,7 @@ import {
   copyArrayItem,
   moveItemInArray,
 } from '@angular/cdk/drag-drop';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ElementStyle } from 'src/app/models/ElementStyle';
 
@@ -13,11 +13,21 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
   styleUrls: ['./drop-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DropSectionComponent {
+export class DropSectionComponent implements OnInit {
   public elements: ElementStyle[] = [];
   public customForm: FormGroup = new FormGroup({});
 
   private formControlNumber: number = 0;
+
+  ngOnInit(): void {
+    const elements = localStorage.getItem('Form');
+    if (elements) {
+      this.elements = JSON.parse(elements);
+      this.elements.forEach((element: ElementStyle) => {
+        return this.addFormControl(this.customForm, element);
+      });
+    }
+  }
 
   public drop(event: CdkDragDrop<any[]>) {
     event.previousContainer === event.container
@@ -50,8 +60,11 @@ export class DropSectionComponent {
     console.log(this.customForm.value);
   }
 
-  public saveDropField() {
-    console.log('save');
+  public saveDropField(): void {
+    if (this.elements.length < 1) {
+      return;
+    }
+    localStorage.setItem('Form', JSON.stringify(this.elements));
   }
 
   public clearDropField() {
@@ -59,8 +72,13 @@ export class DropSectionComponent {
       this.customForm.removeControl(`${i}`);
     }
     this.clearArray(this.elements);
+    this.removeFromLocalStorage('Form');
   }
 
+  private removeFromLocalStorage(item: string) {
+    localStorage.removeItem(item);
+  }
+  
   private clearArray(array: any[]): void {
     array.length = 0;
   }
