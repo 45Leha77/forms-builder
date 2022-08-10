@@ -23,13 +23,13 @@ export class DynamicFormControlComponent implements ControlValueAccessor {
   public writeValue(obj: any): void {
     return obj;
   }
-  public registerOnChange(fn: any): void {
+  public registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
   }
   public registerOnTouched(fn: any): void {}
 
   public setInputStyle(elementStyle: ElementStyle) {
-    let styles = {
+    const styles = {
       color: `${elementStyle.color}`,
       width: `${elementStyle.width}px`,
       height: `${elementStyle.height}px`,

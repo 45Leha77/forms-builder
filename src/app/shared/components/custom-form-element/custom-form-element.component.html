@@ -1,23 +1,29 @@
-<div cdkDrag *ngIf="elementStyle.title === 'input'">
-  <input
-    type="text"
-    [placeholder]="elementStyle.placeholderText"
-    [required]="elementStyle.required"
-    [ngStyle]="setInputStyle()"
-  />
-</div>
-
-<div cdkDrag *ngIf="elementStyle.title === 'textarea'">
-  <textarea
-    type="text"
-    [placeholder]="elementStyle.placeholderText"
-    [required]="elementStyle.required"
-    [ngStyle]="setInputStyle()"
-  ></textarea>
-</div>
-
-<div cdkDrag *ngIf="elementStyle.title === 'button'">
-  <button mat-raised-button color="accent" [ngStyle]="setInputStyle()">
-    {{ elementStyle.placeholderText }}
-  </button>
-</div>
+<input
+  *ngIf="element.title === 'input'"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  [ngStyle]="setInputStyle(element)"
+  disabled
+/>
+<textarea
+  *ngIf="element.title === 'textarea'"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  [ngStyle]="setInputStyle(element)"
+  disabled
+></textarea>
+<button
+  mat-raised-button
+  color="accent"
+  *ngIf="element.title === 'button'"
+  [ngStyle]="setInputStyle(element)"
+>
+  {{ element.placeholderText }}
+</button>
+<input
+  type="radio"
+  *ngIf="element.title === 'radio-input'"
+  [required]="element.required"
+  [ngStyle]="setInputStyle(element)"
+  disabled
+/>

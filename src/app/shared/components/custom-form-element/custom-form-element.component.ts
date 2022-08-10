@@ -8,16 +8,15 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomFormElementComponent {
-  @Input() public elementStyle!: ElementStyle;
+  @Input() public element!: ElementStyle;
 
-  public setInputStyle() {
+  public setInputStyle(elementStyle: ElementStyle) {
     let styles = {
-      color: `${this.elementStyle.color}`,
-      width: `${this.elementStyle.width}px`,
-      height: `${this.elementStyle.height}px`,
-      borderStyle: `${this.elementStyle.borderStyle}`,
-      fontSize: `${this.elementStyle.fontSize}px`,
-      fontWeight: `${this.elementStyle.fontWeight}`,
+      width: `${elementStyle.width}px`,
+      height: `${elementStyle.height}px`,
+      borderStyle: `${elementStyle.borderStyle}`,
+      fontSize: `${elementStyle.fontSize}px`,
+      fontWeight: `${elementStyle.fontWeight}`,
     };
     return styles;
   }

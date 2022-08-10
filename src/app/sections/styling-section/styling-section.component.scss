@@ -1,19 +1,15 @@
-.styling-section {
-  // .styling-section__form
-  width: 100%;
-}
-.form {
-  background-color: rgb(117, 68, 92);
-  width: auto;
-  min-width: fit-content;
-  padding: 10px;
-  &__inputs {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    column-gap: 5px;
-  }
+$stylingSectionBackgroundColor: rgb(6, 21, 3);
 
-  &__field {
-    // width: 30%;
+.styling-section {
+  background-color: $stylingSectionBackgroundColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  width: 100%;
+  height: 100%;
+  font-size: 22px;
+  &__static-text {
+    font-size: 30px;
   }
 }

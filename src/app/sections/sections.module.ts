@@ -20,7 +20,7 @@ import { SectionsRoutingModule } from './sections-routing.module';
 import { SectionsComponent } from './sections.component';
 import { StylingSectionComponent } from './styling-section/styling-section.component';
 import { LetModule } from '@ngrx/component';
-import { DynamicFormControlComponent } from './drop-section/dynamic-form-control/dynamic-form-control.component';
+import { StylingFormComponent } from './styling-section/styling-form/styling-form.component';
 
 @NgModule({
   imports: [
@@ -45,7 +45,7 @@ import { DynamicFormControlComponent } from './drop-section/dynamic-form-control
     DropSectionComponent,
     StylingSectionComponent,
     SectionsComponent,
-    DynamicFormControlComponent,
+    StylingFormComponent
   ],
   providers: [],
 })

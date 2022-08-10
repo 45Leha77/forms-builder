@@ -1,54 +1,8 @@
 <div class="styling-section" *ngrxLet="elementStyle$ as elementStyle">
-  <form
-    class="styling-section__form form"
-    [formGroup]="styleForm"
-    (ngSubmit)="onFormSubmit()"
-  >
-    <div class="form__inputs">
-      <mat-form-field appearance="outline" class="form__field">
-        <mat-label>Placeholder</mat-label>
-        <input matInput formControlName="placeholderText" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="form__field">
-        <mat-label>Width</mat-label>
-        <input matInput formControlName="width" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="form__field">
-        <mat-label>Height</mat-label>
-        <input matInput formControlName="height" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="form__field">
-        <mat-label>Border style</mat-label>
-        <mat-select formControlName="borderStyle">
-          <mat-option
-            *ngFor="let style of elementsService.allBorderStyles"
-            [value]="style"
-            >{{ style }}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="form__field">
-        <mat-label>Font size</mat-label>
-        <input matInput formControlName="fontSize" />
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="form__field">
-        <mat-label>Font weight</mat-label>
-        <mat-select formControlName="fontWeight">
-          <mat-option
-            *ngFor="let style of elementsService.allFontWeights"
-            [value]="style"
-            >{{ style }}</mat-option
-          >
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-checkbox formControlName="required">Required</mat-checkbox>
-      <mat-form-field appearance="outline" class="form__field">
-        <mat-label>Color</mat-label>
-        <input type="color" matInput formControlName="color" />
-      </mat-form-field>
-    </div>
-    <button mat-button color="primary">Submit</button>
-  </form>
+  <app-styling-form *ngIf="elementStyle; else staticBlock"></app-styling-form>
+  <ng-template #staticBlock>
+    <span class="styling-section__static-text"
+      >Click on element to start building a new form</span
+    >
+  </ng-template>
 </div>

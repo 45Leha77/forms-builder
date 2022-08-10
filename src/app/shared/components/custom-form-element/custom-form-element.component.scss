@@ -1,0 +1,7 @@
+input,
+textarea {
+  &:disabled {
+    background-color: white;
+    border: unset;
+  }
+}

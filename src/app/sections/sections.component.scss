@@ -1,29 +1,27 @@
 .page {
-  width: 100%;
-  height: 95vh;
   &__container {
-    padding: 20px 50px;
-    height: 90vh;
+    padding: 40px;
   }
 }
 .sections {
-  display: grid;
-  grid-template:
-    "styling styling drop drop drop"
-    "drag drag drop drop drop";
+  display: flex;
+  grid-template: 20px;
   width: 100%;
-  height: 100%;
+  height: 80vh;
+  &__left-side {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    min-height: 90%;
+  }
+
+  &__right-side {
+    width: 65%;
+  }
 
   &__styling {
-    grid-area: styling;
-  }
-
-  &__drop {
-    grid-area: drop;
-    min-width: 50vw;
-  }
-
-  &__drag {
-    grid-area: drag;
+    min-height: 30%;
   }
 }

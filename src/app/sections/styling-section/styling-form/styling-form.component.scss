@@ -1,0 +1,18 @@
+.form {
+  width: 100%;
+  padding: 40px;
+  &__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+  }
+  button {
+    width: 100%;
+    padding: 10px 0px;
+    font-size: 30px;
+  }
+  &__bottom-inputs {
+    display: flex;
+    justify-content: space-between;
+  }
+}

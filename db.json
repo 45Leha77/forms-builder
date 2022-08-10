@@ -29,9 +29,16 @@
       "title": "button",
       "placeholderText": "Button",
       "borderStyle": "none",
-      "color": "#050505",
+      "color": "",
       "fontSize": "20",
       "fontWeight": "300",
+      "height": "50",
+      "width": "150",
+      "required": false
+    },
+    {
+      "id": "4",
+      "title": "radio-input",
       "height": "50",
       "width": "150",
       "required": false

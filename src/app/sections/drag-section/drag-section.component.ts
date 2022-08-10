@@ -15,10 +15,9 @@ export class DragSectionComponent {
   public elements$: Observable<ElementStyle[]> = this.store.pipe(
     select(getElements)
   );
-
   constructor(private store: Store) {}
 
-  public startEdit(id: string) {
+  public startEdit(id: string): void {
     this.store.dispatch(changeCurrentId({ id }));
   }
 }

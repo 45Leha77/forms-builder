@@ -1,9 +1,13 @@
-<div class="page">
+<main class="page">
   <div class="page__container">
     <div class="page__sections sections" cdkDropListGroup>
-      <app-styling-section class="sections__styling"></app-styling-section>
-      <app-drop-section class="sections__drop"></app-drop-section>
-      <app-drag-section class="sections__drag"></app-drag-section>
+      <div class="sections__left-side">
+        <app-styling-section class="sections__styling"></app-styling-section>
+        <app-drag-section class="sections__drag"></app-drag-section>
+      </div>
+      <div class="sections__right-side">
+        <app-drop-section class="sections__drop"></app-drop-section>
+      </div>
     </div>
   </div>
-</div>
+</main>

@@ -15,7 +15,7 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
 })
 export class ButtonComponent {
   @Input() public element!: ElementStyle;
-  @Output() submit: EventEmitter<void> = new EventEmitter();
+  @Output() public submit: EventEmitter<void> = new EventEmitter<void>();
 
   public setInputStyle() {
     let styles = {

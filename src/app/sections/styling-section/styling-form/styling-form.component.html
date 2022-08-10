@@ -1,0 +1,96 @@
+<ng-container *ngrxLet="elementStyle$ as elementStyle">
+  <form
+    class="styling-section__form form"
+    [formGroup]="styleForm"
+    (ngSubmit)="onFormSubmit()"
+    *ngIf="elementStyle"
+  >
+    <div class="form__inputs">
+      <mat-form-field
+        *ngIf="elementStyle.placeholderText"
+        appearance="outline"
+        color="accent"
+        class="form__field"
+      >
+        <mat-label>Placeholder</mat-label>
+        <input matInput formControlName="placeholderText" />
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="elementStyle.width"
+        appearance="outline"
+        color="accent"
+        class="form__field"
+      >
+        <mat-label>Width</mat-label>
+        <input matInput formControlName="width" />
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="elementStyle.height"
+        appearance="outline"
+        color="accent"
+        class="form__field"
+      >
+        <mat-label>Height</mat-label>
+        <input matInput formControlName="height" />
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="elementStyle.borderStyle"
+        appearance="outline"
+        color="accent"
+        class="form__field"
+      >
+        <mat-label>Border style</mat-label>
+        <mat-select formControlName="borderStyle">
+          <mat-option
+            *ngFor="let style of elementsService.allBorderStyles"
+            [value]="style"
+            >{{ style }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="elementStyle.fontSize"
+        appearance="outline"
+        color="accent"
+        class="form__field"
+      >
+        <mat-label>Font size</mat-label>
+        <input matInput formControlName="fontSize" />
+      </mat-form-field>
+      <mat-form-field
+        *ngIf="elementStyle.fontWeight"
+        appearance="outline"
+        color="accent"
+        class="form__field"
+      >
+        <mat-label>Font weight</mat-label>
+        <mat-select formControlName="fontWeight">
+          <mat-option
+            *ngFor="let style of elementsService.allFontWeights"
+            [value]="style"
+            >{{ style }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="form__bottom-inputs">
+      <mat-checkbox formControlName="required">Required</mat-checkbox>
+      <mat-form-field
+        *ngIf="elementStyle.color"
+        appearance="outline"
+        color="accent"
+        class="form__field"
+      >
+        <mat-label>Color</mat-label>
+        <input type="color" matInput formControlName="color" />
+      </mat-form-field>
+    </div>
+    <button
+      [disabled]="this.styleForm.invalid"
+      mat-raised-button
+      color="primary"
+    >
+      Apply
+    </button>
+  </form>
+</ng-container>
