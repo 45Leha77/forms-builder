@@ -1,5 +1,4 @@
 .form {
-  width: 100%;
   padding: 40px;
   &__inputs {
     display: grid;
@@ -9,7 +8,7 @@
   button {
     width: 100%;
     padding: 10px 0px;
-    font-size: 30px;
+    font-size: 25px;
   }
   &__bottom-inputs {
     display: flex;

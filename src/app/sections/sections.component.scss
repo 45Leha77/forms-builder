@@ -5,20 +5,21 @@
 }
 .sections {
   display: flex;
-  grid-template: 20px;
+  justify-content: space-between;
   width: 100%;
   height: 85vh;
   &__left-side {
-    width: 40%;
+    width: clamp(40%, 40%, 60%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 20px;
     min-height: 90%;
+    height: fit-content;
   }
 
   &__right-side {
-    width: 60%;
+    width: clamp(40%, 60%, 60%);
   }
 
   &__styling {

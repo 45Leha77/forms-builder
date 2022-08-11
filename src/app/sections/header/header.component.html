@@ -1,9 +1,13 @@
 <header class="header">
   <div class="header__container">
     <nav class="header__navbar navbar-header" *ngrxLet="user$ as user">
-      <div class="navbar-header__user user-navbar" *ngIf="user">
+      <div
+        class="navbar-header__user user-navbar"
+        *ngIf="user"
+        (click)="toggleUserVisibility()"
+      >
         <h1 class="user-navbar__title">User</h1>
-        <div class="user-navbar__text">
+        <div class="user-navbar__text" *ngIf="isUserInfoVisible" @appearing>
           <h3>ID: {{ user.id }}</h3>
           <h2>
             Email: <strong>{{ user.email }}</strong>
