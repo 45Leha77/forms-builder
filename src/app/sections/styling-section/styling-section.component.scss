@@ -1,12 +1,13 @@
-$stylingSectionBackgroundColor: rgb(6, 21, 3);
+@import "src/assets/style/variables";
 
 .styling-section {
-  background-color: $stylingSectionBackgroundColor;
+  background-color: $darkSectionBackground;
   display: flex;
   justify-content: center;
   align-items: center;
   color: whitesmoke;
   height: fit-content;
+  min-height: 300px;
   width: 100%;
   font-size: 18px;
   &__static-text {

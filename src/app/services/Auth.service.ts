@@ -20,6 +20,11 @@ export class AuthService {
     localStorage.setItem('user', JSON.stringify(response.user));
   }
 
+  public removeAuthDataFromLocalStorage(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+  }
+
   public getTokenFromLocalStorage(): string {
     const token: string = localStorage.getItem('token')!;
     return token;
