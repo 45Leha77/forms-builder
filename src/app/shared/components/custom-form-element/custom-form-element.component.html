@@ -3,14 +3,12 @@
   [placeholder]="element.placeholderText"
   [required]="element.required"
   [ngStyle]="element | styles"
-  disabled
 />
 <textarea
   *ngIf="element.title === 'textarea'"
   [placeholder]="element.placeholderText"
   [required]="element.required"
   [ngStyle]="element | styles"
-  disabled
 ></textarea>
 <button
   mat-raised-button
@@ -25,12 +23,10 @@
   *ngIf="element.title === 'radio-input'"
   [required]="element.required"
   [ngStyle]="element | styles"
-  disabled
 />
 <input
   type="checkbox"
   *ngIf="element.title === 'checkbox'"
   [required]="element.required"
   [ngStyle]="element | styles"
-  disabled
 />
