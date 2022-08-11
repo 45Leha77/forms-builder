@@ -8,8 +8,8 @@
       "color": "#050505",
       "fontSize": "16",
       "fontWeight": "500",
-      "height": "80",
-      "width": "150",
+      "height": "100",
+      "width": "200",
       "required": false
     },
     {
@@ -20,8 +20,8 @@
       "color": "#050505",
       "fontSize": "20",
       "fontWeight": "300",
-      "height": "100",
-      "width": "200",
+      "height": "150",
+      "width": "300",
       "required": false
     },
     {
@@ -32,15 +32,20 @@
       "color": "",
       "fontSize": "20",
       "fontWeight": "300",
-      "height": "50",
-      "width": "150",
+      "height": "70",
+      "width": "200",
       "required": false
     },
     {
       "id": "4",
       "title": "radio-input",
-      "height": "50",
-      "width": "150",
+      "width": "50",
+      "required": false
+    },
+    {
+      "id": "5",
+      "title": "checkbox",
+      "width": "50",
       "required": false
     }
   ],

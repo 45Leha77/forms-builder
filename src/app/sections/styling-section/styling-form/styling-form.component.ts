@@ -17,7 +17,7 @@ export class StylingFormComponent {
   public styleForm: FormGroup = new FormGroup({
     placeholderText: new FormControl(null, [Validators.min(1)]),
     width: new FormControl(null, [Validators.required, Validators.min(1)]),
-    height: new FormControl(null, [Validators.required, Validators.min(1)]),
+    height: new FormControl(null, [Validators.min(1)]),
     required: new FormControl(false),
     borderStyle: new FormControl(null),
     fontSize: new FormControl(null, [Validators.min(1)]),
