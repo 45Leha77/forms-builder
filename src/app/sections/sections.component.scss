@@ -1,13 +1,13 @@
 .page {
   &__container {
-    padding: 40px;
+    padding: 30px;
   }
 }
 .sections {
   display: flex;
   grid-template: 20px;
   width: 100%;
-  height: 90vh;
+  height: 85vh;
   &__left-side {
     width: 40%;
     display: flex;

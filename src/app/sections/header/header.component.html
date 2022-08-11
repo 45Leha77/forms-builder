@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="header__container">
+    <nav class="header__navbar navbar-header" *ngrxLet="user$ as user">
+      <div class="navbar-header__user user-navbar" *ngIf="user">
+        <h1 class="user-navbar__title">User</h1>
+        <div class="user-navbar__text">
+          <h3>ID: {{ user.id }}</h3>
+          <h2>
+            Email: <strong>{{ user.email }}</strong>
+          </h2>
+        </div>
+      </div>
+      <div class="navbar-header__auth-control">
+        <button class="navbar-header__logout-button" (click)="logout()">
+          LOGOUT
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>

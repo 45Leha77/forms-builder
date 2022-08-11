@@ -4,6 +4,7 @@ import { AuthResponse } from 'src/app/models/AuthResponse';
 export const LOGIN_START = '[Auth] login start';
 export const LOGIN_SUCCESS = '[Auth] login success';
 export const LOGIN_AUTO = '[Auth] login auto';
+export const LOGOUT = '[Auth] logout';
 
 export const loginStart = createAction(
   LOGIN_START,
@@ -16,3 +17,5 @@ export const loginSuccess = createAction(
 );
 
 export const loginAuto = createAction(LOGIN_AUTO);
+
+export const logout = createAction(LOGOUT);

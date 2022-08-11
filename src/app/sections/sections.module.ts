@@ -21,6 +21,7 @@ import { SectionsComponent } from './sections.component';
 import { StylingSectionComponent } from './styling-section/styling-section.component';
 import { LetModule } from '@ngrx/component';
 import { StylingFormComponent } from './styling-section/styling-form/styling-form.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { StylingFormComponent } from './styling-section/styling-form/styling-for
     DropSectionComponent,
     StylingSectionComponent,
     SectionsComponent,
-    StylingFormComponent
+    StylingFormComponent,
+    HeaderComponent,
   ],
   providers: [],
 })

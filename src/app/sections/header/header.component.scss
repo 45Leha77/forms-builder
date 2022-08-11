@@ -1,0 +1,52 @@
+.header {
+  background-color: rgba(0, 0, 0, 0.803);
+  color: white;
+  &__container {
+    padding: 20px 40px;
+  }
+
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.navbar-header {
+  &__auth-control {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logout-button {
+    background-color: black;
+    padding: 40px;
+    font-size: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+.user-navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: black;
+  padding: 10px;
+  border-radius: 8px;
+  &__title {
+    font-size: 30px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
