@@ -9,7 +9,7 @@ export class StylesPipe implements PipeTransform {
   transform(styleList: ElementStyle): any {
     return {
       width: `${styleList.width}px`,
-      height: `${styleList.height}px`,
+      height: `${styleList.height ? styleList.height : styleList.width}px`,
       borderStyle: `${styleList.borderStyle}`,
       fontSize: `${styleList.fontSize}px`,
       fontWeight: `${styleList.fontWeight}`,

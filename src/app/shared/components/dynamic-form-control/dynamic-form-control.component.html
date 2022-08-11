@@ -25,3 +25,12 @@
   (change)="onChange(radio.value)"
   #radio
 />
+<input
+  type="checkbox"
+  *ngIf="element.title === 'checkbox'"
+  class="drop-field__element"
+  [ngStyle]="element | styles"
+  [required]="element.required"
+  (change)="onChange(radio.value)"
+  #radio
+/>

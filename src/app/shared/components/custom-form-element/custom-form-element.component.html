@@ -27,3 +27,10 @@
   [ngStyle]="element | styles"
   disabled
 />
+<input
+  type="checkbox"
+  *ngIf="element.title === 'checkbox'"
+  [required]="element.required"
+  [ngStyle]="element | styles"
+  disabled
+/>
