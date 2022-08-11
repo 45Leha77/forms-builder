@@ -9,15 +9,4 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
 })
 export class CustomFormElementComponent {
   @Input() public element!: ElementStyle;
-
-  public setInputStyle(elementStyle: ElementStyle) {
-    let styles = {
-      width: `${elementStyle.width}px`,
-      height: `${elementStyle.height}px`,
-      borderStyle: `${elementStyle.borderStyle}`,
-      fontSize: `${elementStyle.fontSize}px`,
-      fontWeight: `${elementStyle.fontWeight}`,
-    };
-    return styles;
-  }
 }

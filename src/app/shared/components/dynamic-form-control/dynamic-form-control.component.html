@@ -1,7 +1,7 @@
 <input
   *ngIf="element.title === 'input'"
   class="drop-field__element"
-  [ngStyle]="setInputStyle(element)"
+  [ngStyle]="element | styles"
   [placeholder]="element.placeholderText"
   [required]="element.required"
   (change)="onChange(input.value)"
@@ -10,7 +10,7 @@
 <textarea
   *ngIf="element.title === 'textarea'"
   class="drop-field__element"
-  [ngStyle]="setInputStyle(element)"
+  [ngStyle]="element | styles"
   [placeholder]="element.placeholderText"
   [required]="element.required"
   (change)="onChange(textarea.value)"
@@ -20,7 +20,7 @@
   type="radio"
   *ngIf="element.title === 'radio-input'"
   class="drop-field__element"
-  [ngStyle]="setInputStyle(element)"
+  [ngStyle]="element | styles"
   [required]="element.required"
   (change)="onChange(radio.value)"
   #radio

@@ -2,21 +2,21 @@
   *ngIf="element.title === 'input'"
   [placeholder]="element.placeholderText"
   [required]="element.required"
-  [ngStyle]="setInputStyle(element)"
+  [ngStyle]="element | styles"
   disabled
 />
 <textarea
   *ngIf="element.title === 'textarea'"
   [placeholder]="element.placeholderText"
   [required]="element.required"
-  [ngStyle]="setInputStyle(element)"
+  [ngStyle]="element | styles"
   disabled
 ></textarea>
 <button
   mat-raised-button
   color="accent"
   *ngIf="element.title === 'button'"
-  [ngStyle]="setInputStyle(element)"
+  [ngStyle]="element | styles"
 >
   {{ element.placeholderText }}
 </button>
@@ -24,6 +24,6 @@
   type="radio"
   *ngIf="element.title === 'radio-input'"
   [required]="element.required"
-  [ngStyle]="setInputStyle(element)"
+  [ngStyle]="element | styles"
   disabled
 />

@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CustomFormElementComponent } from './components/custom-form-element/custom-form-element.component';
 import { DynamicFormControlComponent } from './components/dynamic-form-control/dynamic-form-control.component';
 import { FormsModule } from '@angular/forms';
+import { StylesPipe } from './pipes/styles.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     TextareaComponent,
     CustomFormElementComponent,
     DynamicFormControlComponent,
+    StylesPipe,
   ],
   imports: [CommonModule, FormsModule, DragDropModule, MatButtonModule],
   exports: [
