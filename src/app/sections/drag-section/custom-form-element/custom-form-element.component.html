@@ -24,9 +24,13 @@
   [required]="element.required"
   [ngStyle]="element | styles"
 />
-<input
-  type="checkbox"
-  *ngIf="element.title === 'checkbox'"
-  [required]="element.required"
-  [ngStyle]="element | styles"
-/>
+<div class="checkbox">
+  <label for="checkbox" *ngIf="element.label">{{ element.label }}</label>
+  <input
+    name="checkbox"
+    type="checkbox"
+    *ngIf="element.title === 'checkbox'"
+    [required]="element.required"
+    [ngStyle]="element | styles"
+  />
+</div>

@@ -9,7 +9,7 @@
   width: 100%;
   height: 85vh;
   &__left-side {
-    width: clamp(40%, 40%, 60%);
+    width: clamp(30%, 40%, 60%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

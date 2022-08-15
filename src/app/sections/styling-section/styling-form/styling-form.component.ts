@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 import { ElementStyle } from 'src/app/models/ElementStyle';
 import { ElementsService } from 'src/app/services/elements.service';
 import { editElement } from '../../State/elements.actions';
-import { getElementStyleById } from '../../State/elements.selector';
+import { getElementStyleByTitle } from '../../State/elements.selector';
 
 @Component({
   selector: 'app-styling-form',
@@ -23,11 +23,12 @@ export class StylingFormComponent {
     fontSize: new FormControl(null, [Validators.min(1)]),
     fontWeight: new FormControl(null),
     color: new FormControl(null, [Validators.minLength(1)]),
+    label: new FormControl(null, [Validators.min(1)]),
   });
   private elementStyle!: ElementStyle;
 
   public elementStyle$: Observable<ElementStyle | undefined> = this.store.pipe(
-    select(getElementStyleById),
+    select(getElementStyleByTitle),
     tap((style: ElementStyle | undefined) => {
       if (style) {
         this.elementStyle = style;

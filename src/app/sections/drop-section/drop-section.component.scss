@@ -27,10 +27,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
   &__element {
     :last-child {
       border: none;
     }
+  }
+
+  &__button {
+    margin-top: 10px;
   }
 }
 

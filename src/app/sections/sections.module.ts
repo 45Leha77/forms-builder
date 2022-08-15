@@ -22,6 +22,8 @@ import { StylingSectionComponent } from './styling-section/styling-section.compo
 import { LetModule } from '@ngrx/component';
 import { StylingFormComponent } from './styling-section/styling-form/styling-form.component';
 import { HeaderComponent } from './header/header.component';
+import { CustomFormElementComponent } from './drag-section/custom-form-element/custom-form-element.component';
+import { DynamicFormControlComponent } from './drop-section/dynamic-form-control/dynamic-form-control.component';
 
 @NgModule({
   imports: [
@@ -48,6 +50,8 @@ import { HeaderComponent } from './header/header.component';
     SectionsComponent,
     StylingFormComponent,
     HeaderComponent,
+    CustomFormElementComponent,
+    DynamicFormControlComponent,
   ],
   providers: [],
 })

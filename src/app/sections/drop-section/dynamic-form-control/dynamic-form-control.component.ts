@@ -17,7 +17,6 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
 })
 export class DynamicFormControlComponent implements ControlValueAccessor {
   @Input() element!: ElementStyle;
-  @Input() index!: Number;
 
   public onChange!: (value: string) => void;
   public writeValue(obj: any): void {
@@ -27,16 +26,4 @@ export class DynamicFormControlComponent implements ControlValueAccessor {
     this.onChange = fn;
   }
   public registerOnTouched(fn: any): void {}
-
-  public setInputStyle(elementStyle: ElementStyle) {
-    const styles = {
-      color: `${elementStyle.color}`,
-      width: `${elementStyle.width}px`,
-      height: `${elementStyle.height}px`,
-      borderStyle: `${elementStyle.borderStyle}`,
-      fontSize: `${elementStyle.fontSize}px`,
-      fontWeight: `${elementStyle.fontWeight}`,
-    };
-    return styles;
-  }
 }

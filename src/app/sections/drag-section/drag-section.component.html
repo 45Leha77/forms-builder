@@ -8,7 +8,7 @@
     class="drag-section__element"
     *ngFor="let element of elements"
     [element]="element"
-    (click)="startEdit(element.id)"
+    (click)="startEdit(element.title)"
     cdkDrag
   ></custom-form-element>
 </section>

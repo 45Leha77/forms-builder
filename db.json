@@ -1,7 +1,6 @@
 {
   "elements": [
     {
-      "id": "1",
       "title": "input",
       "placeholderText": "Placeholder",
       "borderStyle": "dotted",
@@ -13,7 +12,6 @@
       "required": false
     },
     {
-      "id": "2",
       "title": "textarea",
       "placeholderText": "Placeholder",
       "borderStyle": "dotted",
@@ -25,7 +23,6 @@
       "required": false
     },
     {
-      "id": "3",
       "title": "button",
       "placeholderText": "Button",
       "borderStyle": "none",
@@ -37,14 +34,13 @@
       "required": false
     },
     {
-      "id": "4",
       "title": "radio-input",
       "width": "50",
       "required": false
     },
     {
-      "id": "5",
       "title": "checkbox",
+      "label": "label",
       "width": "50",
       "required": false
     }

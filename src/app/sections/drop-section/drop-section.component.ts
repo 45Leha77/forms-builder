@@ -2,6 +2,7 @@ import {
   CdkDragDrop,
   copyArrayItem,
   moveItemInArray,
+  CdkDragExit,
 } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -26,26 +27,30 @@ export class DropSectionComponent implements OnInit {
     }
   }
 
-  public drop(event: CdkDragDrop<any[]>) {
-    event.previousContainer === event.container
-      ? moveItemInArray(
-          event.container.data,
-          event.previousIndex,
-          event.currentIndex
-        )
-      : copyArrayItem(
-          event.previousContainer.data,
-          event.container.data,
-          event.previousIndex,
-          event.currentIndex
-        );
-    const element: ElementStyle = event.container.data[event.currentIndex];
+  public drop(event: CdkDragDrop<ElementStyle[]>): void {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else {
+      copyArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex
+      );
+    }
+    const element: ElementStyle = {
+      ...event.container.data[event.currentIndex],
+      id: this.setUniqueID(),
+    };
     this.addFormControl(this.customForm, element);
   }
 
-  public onCustomFormSubmit() {
+  public onCustomFormSubmit(): void {
     console.log(this.customForm.value);
-    this.customForm.reset();
   }
 
   public saveDropField(): void {
@@ -55,7 +60,7 @@ export class DropSectionComponent implements OnInit {
     localStorage.setItem('Form', JSON.stringify(this.elements));
   }
 
-  public clearDropField() {
+  public clearDropField(): void {
     for (let i = 0; i < this.formControlsNumber; i++) {
       this.customForm.removeControl(`${i}`);
     }
@@ -79,11 +84,21 @@ export class DropSectionComponent implements OnInit {
     });
   }
 
-  private removeFromLocalStorage(item: string) {
+  private removeFromLocalStorage(item: string): void {
     localStorage.removeItem(item);
   }
 
   private clearArray(array: any[]): void {
     array.length = 0;
+  }
+
+  private setUniqueID(): string {
+    return `${Math.floor(
+      Math.random() * Math.floor(Math.random() * Date.now())
+    )}`;
+  }
+
+  public exit(event: CdkDragExit<ElementStyle[]>) {
+    console.log(event);
   }
 }

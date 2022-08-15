@@ -7,7 +7,7 @@ export const LOAD_ELEMENTS_SUCCESS = '[Elements] load elements success';
 
 export const EDIT_ELEMENT = '[Elements] edit element style';
 
-export const CHANGE_CURRENT_ID = '[Elements] change current element id';
+export const CHANGE_CURRENT_ELEMENT = '[Elements] change current element';
 
 export const loadElements = createAction(LOAD_ELEMENTS);
 export const loadElementsSuccess = createAction(
@@ -20,7 +20,7 @@ export const editElement = createAction(
   props<{ elementStyle: ElementStyle }>()
 );
 
-export const changeCurrentId = createAction(
-  CHANGE_CURRENT_ID,
-  props<{ id: string }>()
+export const changeCurrentElement = createAction(
+  CHANGE_CURRENT_ELEMENT,
+  props<{ element: string }>()
 );

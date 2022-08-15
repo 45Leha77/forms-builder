@@ -2,7 +2,7 @@ import { BorderStyles } from '../enums/border-styles';
 import { FontWeights } from '../enums/font-weights';
 
 export interface ElementStyle {
-  id: string;
+  id?: string;
   title: string;
   placeholderText?: string;
   width: string;
@@ -12,4 +12,5 @@ export interface ElementStyle {
   fontSize?: string;
   fontWeight?: FontWeights;
   color?: string;
+  label?: string;
 }

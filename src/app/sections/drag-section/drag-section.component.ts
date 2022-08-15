@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ElementStyle } from 'src/app/models/ElementStyle';
-import { changeCurrentId } from 'src/app/sections/State/elements.actions';
+import { changeCurrentElement } from 'src/app/sections/State/elements.actions';
 import { getElements } from 'src/app/sections/State/elements.selector';
 
 @Component({
@@ -17,7 +17,7 @@ export class DragSectionComponent {
   );
   constructor(private store: Store) {}
 
-  public startEdit(id: string): void {
-    this.store.dispatch(changeCurrentId({ id }));
+  public startEdit(element: string): void {
+    this.store.dispatch(changeCurrentElement({ element }));
   }
 }

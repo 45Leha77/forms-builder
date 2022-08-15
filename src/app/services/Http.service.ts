@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class HttpService {
   constructor(private http: HttpClient) {}
 
-  public getElements(): Observable<ElementStyle[]> {
+  public getElements$(): Observable<ElementStyle[]> {
     return this.http.get<ElementStyle[]>(env.BASE_URL);
   }
 }

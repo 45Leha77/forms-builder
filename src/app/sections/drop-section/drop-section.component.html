@@ -4,20 +4,22 @@
     cdkDropList
     [cdkDropListData]="elements"
     (cdkDropListDropped)="drop($event)"
+    (cdkDropListExited)="exit($event)"
     [formGroup]="customForm"
     *ngIf="elements"
     (ngSubmit)="onCustomFormSubmit()"
   >
     <ng-container *ngFor="let element of elements; let i = index">
       <app-dynamic-form-control
+        class="drop-field__element"
         *ngIf="element.title !== 'button'"
         [element]="element"
-        [index]="i"
         [formControlName]="i"
         cdkDrag
       >
       </app-dynamic-form-control>
       <app-button
+        class="drop-field__button"
         *ngIf="element.title === 'button'"
         [element]="element"
       ></app-button>

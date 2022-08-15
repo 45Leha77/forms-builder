@@ -72,6 +72,15 @@
           >
         </mat-select>
       </mat-form-field>
+      <mat-form-field
+        *ngIf="elementStyle.label"
+        appearance="outline"
+        color="accent"
+        class="form__field"
+      >
+        <mat-label>Label</mat-label>
+        <input matInput formControlName="label" />
+      </mat-form-field>
     </div>
     <div class="form__bottom-inputs">
       <mat-checkbox formControlName="required">Required</mat-checkbox>
