@@ -23,7 +23,7 @@ export class HeaderComponent {
     this.store.dispatch(logout());
   }
 
-  public toggleUserVisibility() {
-    this.isUserInfoVisible = !this.isUserInfoVisible;
+  public toggleUserVisibility(isOpen: boolean): void {
+    this.isUserInfoVisible = isOpen;
   }
 }

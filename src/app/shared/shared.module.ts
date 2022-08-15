@@ -5,10 +5,11 @@ import { ButtonComponent } from './components/button/button.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { StylesPipe } from './pipes/styles.pipe';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 @NgModule({
-  declarations: [ButtonComponent, StylesPipe],
+  declarations: [ButtonComponent, StylesPipe, ClickOutsideDirective],
   imports: [CommonModule, FormsModule, DragDropModule, MatButtonModule],
-  exports: [ButtonComponent, StylesPipe],
+  exports: [ButtonComponent, StylesPipe, ClickOutsideDirective],
 })
 export class SharedModule {}

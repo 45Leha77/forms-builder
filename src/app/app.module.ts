@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 import { AppReducer } from './Store/App.State';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
-import { InterceptorService } from './services/interceptor.service';
+import { InterceptorService } from './services/Interceptors/interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],

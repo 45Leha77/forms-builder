@@ -4,14 +4,15 @@
       <div
         class="navbar-header__user user-navbar"
         *ngIf="user"
-        (click)="toggleUserVisibility()"
+        (click)="toggleUserVisibility(true)"
+        (clickOutside)="toggleUserVisibility(false)"
       >
-        <h1 class="user-navbar__title">User</h1>
+        <h1 class="user-navbar__title">User info</h1>
         <div class="user-navbar__text" *ngIf="isUserInfoVisible" @appearing>
           <h3>ID: {{ user.id }}</h3>
-          <h2>
+          <span>
             Email: <strong>{{ user.email }}</strong>
-          </h2>
+          </span>
         </div>
       </div>
       <div class="navbar-header__auth-control">
