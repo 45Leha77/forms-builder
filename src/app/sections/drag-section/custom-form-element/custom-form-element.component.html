@@ -1,0 +1,36 @@
+<input
+  *ngIf="element.title === 'input'"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  [ngStyle]="element | styles"
+/>
+<textarea
+  *ngIf="element.title === 'textarea'"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  [ngStyle]="element | styles"
+></textarea>
+<button
+  mat-raised-button
+  color="accent"
+  *ngIf="element.title === 'button'"
+  [ngStyle]="element | styles"
+>
+  {{ element.placeholderText }}
+</button>
+<input
+  type="radio"
+  *ngIf="element.title === 'radio-input'"
+  [required]="element.required"
+  [ngStyle]="element | styles"
+/>
+<div class="checkbox">
+  <label for="checkbox" *ngIf="element.label">{{ element.label }}</label>
+  <input
+    name="checkbox"
+    type="checkbox"
+    *ngIf="element.title === 'checkbox'"
+    [required]="element.required"
+    [ngStyle]="element | styles"
+  />
+</div>

@@ -1,40 +1,45 @@
 import { Injectable } from '@angular/core';
+import { BorderStyles } from '../enums/border-styles';
+import { FontWeights } from '../enums/font-weights';
 
 @Injectable({ providedIn: 'root' })
 export class ElementsService {
-  get allBorderStyles() {
-    return [
-      'none',
-      'hidden',
-      'dotted',
-      'dashed',
-      'solid',
-      'double',
-      'groove',
-      'ridge',
-      'inset',
-      'outset',
-    ];
-  }
+  private readonly borderStyles: BorderStyles[] = [
+    BorderStyles.none,
+    BorderStyles.hidden,
+    BorderStyles.dotted,
+    BorderStyles.dashed,
+    BorderStyles.solid,
+    BorderStyles.double,
+    BorderStyles.groove,
+    BorderStyles.ridge,
+    BorderStyles.inset,
+    BorderStyles.outset,
+  ];
 
-  get allFontWeights() {
-    return [
-      'normal',
-      'bold',
-      'lighter',
-      'bolder',
-      '100',
-      '200',
-      '300',
-      '400',
-      '500',
-      '600',
-      '700',
-      '800',
-      '900',
-      'inherit',
-      'initial',
-      'unset',
-    ];
+  private readonly fontWeights: FontWeights[] = [
+    FontWeights.normal,
+    FontWeights.bold,
+    FontWeights.lighter,
+    FontWeights.bolder,
+    FontWeights.hundred,
+    FontWeights.twoHundred,
+    FontWeights.threeHundred,
+    FontWeights.fourHundred,
+    FontWeights.fiveHundred,
+    FontWeights.sixHundred,
+    FontWeights.sevenHundred,
+    FontWeights.eightHundred,
+    FontWeights.nineHundred,
+    FontWeights.inherit,
+    FontWeights.initial,
+    FontWeights.unset,
+  ];
+
+  get allBorderStyles(): string[] {
+    return this.borderStyles;
+  }
+  get allFontWeights(): string[] {
+    return this.fontWeights;
   }
 }

@@ -11,16 +11,16 @@ export const getElements = createSelector(getElementsState, (state) => {
   return state.elementsStyle;
 });
 
-export const getCurrentElementId = createSelector(getElementsState, (state) => {
-  return state.currentElementId;
+export const getCurrentElement = createSelector(getElementsState, (state) => {
+  return state.currentElement;
 });
 
-export const getElementStyleById = createSelector(
-  getCurrentElementId,
+export const getElementStyleByTitle = createSelector(
+  getCurrentElement,
   getElements,
-  (id: string | null, elements: ElementStyle[]) => {
+  (currentElement: string | null, elements: ElementStyle[]) => {
     return elements.find((element: ElementStyle) => {
-      return element.id === id;
+      return element.title === currentElement;
     });
   }
 );

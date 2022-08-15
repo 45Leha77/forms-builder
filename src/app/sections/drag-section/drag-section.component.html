@@ -1,7 +1,14 @@
-<div cdkDropList *ngrxLet="elements$ as elements" [cdkDropListData]="elements">
+<section
+  cdkDropList
+  *ngrxLet="elements$ as elements"
+  [cdkDropListData]="elements"
+  class="drag-section"
+>
   <custom-form-element
+    class="drag-section__element"
     *ngFor="let element of elements"
-    [elementStyle]="element"
-    (click)="startEdit(element.id)"
+    [element]="element"
+    (click)="startEdit(element.title)"
+    cdkDrag
   ></custom-form-element>
-</div>
+</section>

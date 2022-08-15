@@ -1,39 +1,47 @@
 {
   "elements": [
     {
-      "id": "1",
       "title": "input",
       "placeholderText": "Placeholder",
       "borderStyle": "dotted",
       "color": "#050505",
       "fontSize": "16",
       "fontWeight": "500",
-      "height": "80",
-      "width": "150",
+      "height": "100",
+      "width": "200",
       "required": false
     },
     {
-      "id": "2",
       "title": "textarea",
       "placeholderText": "Placeholder",
       "borderStyle": "dotted",
       "color": "#050505",
       "fontSize": "20",
       "fontWeight": "300",
-      "height": "100",
+      "height": "150",
+      "width": "300",
+      "required": false
+    },
+    {
+      "title": "button",
+      "placeholderText": "Button",
+      "borderStyle": "none",
+      "color": "",
+      "fontSize": "20",
+      "fontWeight": "300",
+      "height": "70",
       "width": "200",
       "required": false
     },
     {
-      "id": "3",
-      "title": "button",
-      "placeholderText": "Button",
-      "borderStyle": "none",
-      "color": "#050505",
-      "fontSize": "20",
-      "fontWeight": "300",
-      "height": "50",
-      "width": "150",
+      "title": "radio-input",
+      "width": "50",
+      "required": false
+    },
+    {
+      "title": "checkbox",
+      "label": "label",
+      "width": "50",
       "required": false
     }
   ],

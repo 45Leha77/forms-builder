@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
     | UrlTree
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
-    let localStorageToken = localStorage.getItem('token');
+    let localStorageToken: string | null = localStorage.getItem('token');
     if (localStorageToken) {
       return true;
     }

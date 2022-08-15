@@ -1,28 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InputComponent } from './components/input/input.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ButtonComponent } from './components/button/button.component';
-import { TextareaComponent } from './components/textarea/textarea.component';
-import { CustomFormElementComponent } from './components/custom-form-element/custom-form-element.component';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { StylesPipe } from './pipes/styles.pipe';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 @NgModule({
-  declarations: [
-    InputComponent,
-    ButtonComponent,
-    TextareaComponent,
-    CustomFormElementComponent,
-  ],
-  imports: [
-    CommonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    DragDropModule,
-    MatButtonModule,
-  ],
-  exports: [CustomFormElementComponent],
+  declarations: [ButtonComponent, StylesPipe, ClickOutsideDirective],
+  imports: [CommonModule, FormsModule, DragDropModule, MatButtonModule],
+  exports: [ButtonComponent, StylesPipe, ClickOutsideDirective],
 })
 export class SharedModule {}

@@ -4,7 +4,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, mergeMap, of, tap } from 'rxjs';
 import { AuthResponse } from 'src/app/models/AuthResponse';
 import { AuthService } from 'src/app/services/auth.service';
-import { loginAuto, loginStart, loginSuccess } from './auth.actions';
+import { loginAuto, loginStart, loginSuccess, logout } from './auth.actions';
 
 @Injectable({ providedIn: 'root' })
 export class AuthEffects {
@@ -14,7 +14,7 @@ export class AuthEffects {
     private router: Router
   ) {}
 
-  login$ = createEffect(() => {
+  public login$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(loginStart),
       mergeMap((action) => {
@@ -30,7 +30,7 @@ export class AuthEffects {
     );
   });
 
-  autoLogin$ = createEffect(() => {
+  public autoLogin$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(loginAuto),
       mergeMap((action) => {
@@ -45,12 +45,25 @@ export class AuthEffects {
     );
   });
 
-  loginRedirect$ = createEffect(
+  public loginRedirect$ = createEffect(
     () => {
       return this.actions$.pipe(
         ofType(loginSuccess),
         tap(() => {
           this.router.navigate(['/forms-builder']);
+        })
+      );
+    },
+    { dispatch: false }
+  );
+
+  public logout$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(logout),
+        map(() => {
+          this.authService.removeAuthDataFromLocalStorage();
+          this.router.navigate(['/login']);
         })
       );
     },

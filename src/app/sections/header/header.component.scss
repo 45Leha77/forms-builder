@@ -1,0 +1,59 @@
+@import "../../../assets/style/variables";
+
+.header {
+  background-color: $darkSectionBackground;
+  color: white;
+  &__container {
+    padding: 20px 40px;
+  }
+
+  &__navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.navbar-header {
+  min-height: 126px;
+  &__auth-control {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logout-button {
+    background-color: black;
+    padding: 40px;
+    font-size: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease 0s;
+    @media (any-hover: hover) {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+.user-navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 250px;
+  height: max-content;
+  gap: 10px;
+  background-color: black;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  &__title {
+    font-size: 30px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+  }
+}

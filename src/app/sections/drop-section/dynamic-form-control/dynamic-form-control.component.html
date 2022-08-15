@@ -1,0 +1,40 @@
+<input
+  *ngIf="element.title === 'input'"
+  class="drop-field__element"
+  [ngStyle]="element | styles"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  (change)="onChange(input.value)"
+  #input
+/>
+<textarea
+  *ngIf="element.title === 'textarea'"
+  class="drop-field__element"
+  [ngStyle]="element | styles"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  (change)="onChange(textarea.value)"
+  #textarea
+></textarea>
+<input
+  type="radio"
+  *ngIf="element.title === 'radio-input'"
+  class="drop-field__element"
+  [ngStyle]="element | styles"
+  [required]="element.required"
+  (change)="onChange(radio.value)"
+  #radio
+/>
+
+<div class="checkbox">
+  <label for="checkbox" *ngIf="element.label">{{ element.label }}</label>
+  <input
+    type="checkbox"
+    *ngIf="element.title === 'checkbox'"
+    class="drop-field__element"
+    [ngStyle]="element | styles"
+    [required]="element.required"
+    (change)="onChange(radio.value)"
+    #radio
+  />
+</div>

@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import {
-  changeCurrentId,
+  changeCurrentElement,
   editElement,
   loadElementsSuccess,
 } from './elements.actions';
@@ -10,7 +10,7 @@ const _elementsReducer = createReducer(
   initialState,
   on(editElement, (state, action) => {
     const updatedElements = state.elementsStyle.map((elementStyle) => {
-      return action.elementStyle.id === elementStyle.id
+      return action.elementStyle.title === elementStyle.title
         ? action.elementStyle
         : elementStyle;
     });
@@ -25,10 +25,10 @@ const _elementsReducer = createReducer(
       elementsStyle: action.elements,
     };
   }),
-  on(changeCurrentId, (state, action) => {
+  on(changeCurrentElement, (state, action) => {
     return {
       ...state,
-      currentElementId: action.id,
+      currentElement: action.element,
     };
   })
 );
