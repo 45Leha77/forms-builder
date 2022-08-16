@@ -28,6 +28,7 @@ export class DropSectionComponent implements OnInit {
   }
 
   public drop(event: CdkDragDrop<ElementStyle[]>): void {
+    console.log(this.elements);
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -42,10 +43,7 @@ export class DropSectionComponent implements OnInit {
         event.currentIndex
       );
     }
-    const element: ElementStyle = {
-      ...event.container.data[event.currentIndex],
-      id: this.setUniqueID(),
-    };
+    const element: ElementStyle = event.container.data[event.currentIndex];
     this.addFormControl(this.customForm, element);
   }
 

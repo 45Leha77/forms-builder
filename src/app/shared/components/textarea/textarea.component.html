@@ -1,0 +1,8 @@
+<textarea
+  *ngIf="element"
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  [ngStyle]="element | styles"
+  (change)="onChange(textarea.value)"
+  #textarea
+></textarea>

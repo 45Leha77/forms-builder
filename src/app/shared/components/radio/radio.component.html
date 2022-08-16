@@ -1,0 +1,10 @@
+<div class="radio" *ngIf="element">
+  <label for="radio" *ngIf="element.label">{{ element.label }}</label>
+  <input
+    type="radio"
+    [required]="element.required"
+    [ngStyle]="element | styles"
+    (change)="onChange(radio.value)"
+    #radio
+  />
+</div>

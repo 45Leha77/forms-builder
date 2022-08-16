@@ -10,11 +10,13 @@ const routes: Routes = [
       import('./sections/sections.module').then(
         ({ SectionsModule }) => SectionsModule
       ),
+    title: 'Forms-Builder',
     canActivate: [AuthGuard],
   },
   {
     path: 'login',
     component: AuthComponent,
+    title: 'Login',
   },
 ];
 

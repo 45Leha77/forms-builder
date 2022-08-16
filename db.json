@@ -35,6 +35,7 @@
     },
     {
       "title": "radio-input",
+      "label": "label",
       "width": "50",
       "required": false
     },

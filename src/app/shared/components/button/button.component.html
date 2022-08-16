@@ -1,9 +1,8 @@
 <button
   mat-raised-button
   color="accent"
-  class="drop-field__element"
-  [ngStyle]="setInputStyle()"
-  cdkDrag
+  *ngIf="element"
+  [ngStyle]="element | styles"
   (click)="onButtonClick()"
 >
   {{ element.placeholderText }}

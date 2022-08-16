@@ -1,0 +1,11 @@
+<div class="checkbox" *ngIf="element">
+  <label for="checkbox" *ngIf="element.label">{{ element.label }}</label>
+  <input
+    name="checkbox"
+    type="checkbox"
+    [required]="element.required"
+    [ngStyle]="element | styles"
+    (change)="onChange(checkbox.value)"
+    #checkbox
+  />
+</div>

@@ -25,7 +25,7 @@ export class StylingFormComponent {
     color: new FormControl(null, [Validators.minLength(1)]),
     label: new FormControl(null, [Validators.min(1)]),
   });
-  private elementStyle!: ElementStyle;
+  private elementStyle: ElementStyle | null = null;
 
   public elementStyle$: Observable<ElementStyle | undefined> = this.store.pipe(
     select(getElementStyleByTitle),

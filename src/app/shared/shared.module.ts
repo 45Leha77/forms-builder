@@ -6,10 +6,30 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { StylesPipe } from './pipes/styles.pipe';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { InputComponent } from './components/input/input.component';
+import { TextareaComponent } from './components/textarea/textarea.component';
+import { RadioComponent } from './components/radio/radio.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 
 @NgModule({
-  declarations: [ButtonComponent, StylesPipe, ClickOutsideDirective],
+  declarations: [
+    ButtonComponent,
+    StylesPipe,
+    ClickOutsideDirective,
+    InputComponent,
+    TextareaComponent,
+    RadioComponent,
+    CheckboxComponent,
+  ],
   imports: [CommonModule, FormsModule, DragDropModule, MatButtonModule],
-  exports: [ButtonComponent, StylesPipe, ClickOutsideDirective],
+  exports: [
+    ButtonComponent,
+    StylesPipe,
+    ClickOutsideDirective,
+    InputComponent,
+    TextareaComponent,
+    RadioComponent,
+    CheckboxComponent,
+  ],
 })
 export class SharedModule {}
