@@ -1,28 +1,31 @@
-<app-input
-  [element]="element"
-  class="drop-field__element"
-  *ngIf="element.title === 'input'"
-  (change)="onChange(input.value)"
-  #input
-></app-input>
-<app-textarea
-  [element]="element"
-  class="drop-field__element"
-  *ngIf="element.title === 'textarea'"
-  (change)="onChange(textarea.value)"
-  #textarea
-></app-textarea>
-<app-radio
-  [element]="element"
-  class="drop-field__element"
-  *ngIf="element.title === 'radio-input'"
-  (change)="onChange(radio.value)"
-  #radio
-></app-radio>
-<app-checkbox
-  [element]="element"
-  class="drop-field__element"
-  *ngIf="element.title === 'checkbox'"
-  (change)="onChange(checkbox.value)"
-  #checkbox
-></app-checkbox>
+<ng-container *ngIf="element">
+  <app-input
+    [element]="element"
+    class="drop-field__element"
+    *ngIf="element.title === 'input'"
+    (change)="onChange(input.value)"
+    #input
+  ></app-input>
+  <app-textarea
+    [element]="element"
+    class="drop-field__element"
+    *ngIf="element.title === 'textarea'"
+    (change)="onChange(textarea.value)"
+    #textarea
+  ></app-textarea>
+  <app-radio
+    [element]="element"
+    class="drop-field__element"
+    *ngIf="element.title === 'radio-input'"
+    (change)="onChange(radio.value)"
+    #radio
+  ></app-radio>
+  <app-checkbox
+    [element]="element"
+    class="drop-field__element"
+    *ngIf="element.title === 'checkbox'"
+    (change)="onChange(checkbox.value)"
+    #checkbox
+  ></app-checkbox>
+  <ng-content></ng-content>
+</ng-container>

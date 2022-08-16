@@ -4,7 +4,6 @@
     cdkDropList
     [cdkDropListData]="elements"
     (cdkDropListDropped)="drop($event)"
-    (cdkDropListExited)="exit($event)"
     [formGroup]="customForm"
     *ngIf="elements"
     (ngSubmit)="onCustomFormSubmit()"
@@ -17,19 +16,28 @@
         [formControlName]="i"
         cdkDrag
       >
+        <app-delete-button
+          (click)="removeElement(element.id, i)"
+          class="drop-field__delete-button"
+        ></app-delete-button>
       </app-dynamic-form-control>
       <app-button
         class="drop-field__button"
         *ngIf="element.title === 'button'"
         [element]="element"
-      ></app-button>
+      >
+        <app-delete-button
+          (click)="removeElement(element.id, i)"
+          class="drop-field__delete-button"
+        ></app-delete-button>
+      </app-button>
     </ng-container>
   </form>
   <div class="drop-section__control-buttons">
     <button mat-raised-button color="warn" (click)="clearDropField()">
       CLEAR
     </button>
-    <button mat-raised-button color="primary" (click)="saveDropField()">
+    <button mat-raised-button color="accent" (click)="saveDropField()">
       SAVE
     </button>
   </div>

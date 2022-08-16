@@ -3,6 +3,7 @@ import { FontWeights } from '../enums/font-weights';
 
 export interface ElementStyle {
   id?: string;
+  formControl?: string;
   title: string;
   placeholderText?: string;
   width: string;

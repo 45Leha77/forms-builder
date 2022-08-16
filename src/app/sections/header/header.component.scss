@@ -1,8 +1,9 @@
-@import "../../../assets/style/variables";
+@import "src/assets/style/variables";
+@import "src/assets/style/mixins";
 
 .header {
   background-color: $darkSectionBackground;
-  color: white;
+  color: $mainWhiteColor;
   &__container {
     padding: 20px 40px;
   }
@@ -20,17 +21,13 @@
   }
 
   &__logout-button {
-    background-color: black;
+    background-color: $mainBlackColor;
     padding: 40px;
     font-size: 25px;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.3s ease 0s;
-    @media (any-hover: hover) {
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
+    @include buttonHover;
   }
 }
 .user-navbar {
@@ -41,7 +38,7 @@
   width: 250px;
   height: max-content;
   gap: 10px;
-  background-color: black;
+  background-color: $mainBlackColor;
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;

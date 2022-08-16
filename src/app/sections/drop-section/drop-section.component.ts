@@ -2,7 +2,6 @@ import {
   CdkDragDrop,
   copyArrayItem,
   moveItemInArray,
-  CdkDragExit,
 } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -20,7 +19,7 @@ export class DropSectionComponent implements OnInit {
   private formControlsNumber: number = 0;
 
   ngOnInit(): void {
-    const elements = localStorage.getItem('Form');
+    const elements: string | null = localStorage.getItem('Form');
     if (elements) {
       this.elements = JSON.parse(elements);
       this.restoreForm(this.elements);
@@ -28,7 +27,6 @@ export class DropSectionComponent implements OnInit {
   }
 
   public drop(event: CdkDragDrop<ElementStyle[]>): void {
-    console.log(this.elements);
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -42,9 +40,21 @@ export class DropSectionComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+      const element: ElementStyle = event.container.data[event.currentIndex];
+      this.addFormControl(this.customForm, element);
+      this.elements[event.currentIndex] = {
+        ...this.elements[event.currentIndex],
+        id: this.setUniqueID(),
+      };
+
+      if (element.title !== 'button') {
+        this.elements[event.currentIndex] = {
+          ...this.elements[event.currentIndex],
+          formControl: `${this.formControlsNumber}`,
+        };
+      }
     }
-    const element: ElementStyle = event.container.data[event.currentIndex];
-    this.addFormControl(this.customForm, element);
+    console.log(this.elements);
   }
 
   public onCustomFormSubmit(): void {
@@ -64,6 +74,12 @@ export class DropSectionComponent implements OnInit {
     }
     this.clearArray(this.elements);
     this.removeFromLocalStorage('Form');
+    this.formControlsNumber = 0;
+  }
+
+  public removeElement(id: string | undefined, formControl: number): void {
+    this.elements = this.elements.filter((element) => element.id !== id);
+    this.customForm.removeControl(`${formControl}`);
   }
 
   private addFormControl(form: FormGroup, element: ElementStyle): void {
@@ -94,9 +110,5 @@ export class DropSectionComponent implements OnInit {
     return `${Math.floor(
       Math.random() * Math.floor(Math.random() * Date.now())
     )}`;
-  }
-
-  public exit(event: CdkDragExit<ElementStyle[]>) {
-    console.log(event);
   }
 }

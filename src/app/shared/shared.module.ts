@@ -10,6 +10,7 @@ import { InputComponent } from './components/input/input.component';
 import { TextareaComponent } from './components/textarea/textarea.component';
 import { RadioComponent } from './components/radio/radio.component';
 import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { DeleteButtonComponent } from './components/delete-button/delete-button.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
     TextareaComponent,
     RadioComponent,
     CheckboxComponent,
+    DeleteButtonComponent,
   ],
   imports: [CommonModule, FormsModule, DragDropModule, MatButtonModule],
   exports: [
@@ -30,6 +32,7 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
     TextareaComponent,
     RadioComponent,
     CheckboxComponent,
+    DeleteButtonComponent,
   ],
 })
 export class SharedModule {}
