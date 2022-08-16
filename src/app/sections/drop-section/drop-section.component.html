@@ -3,7 +3,8 @@
     class="drop-section__drop-field drop-field"
     cdkDropList
     [cdkDropListData]="elements"
-    (cdkDropListDropped)="drop($event)"
+    (cdkDropListDropped)="onDrop($event)"
+    (cdkDropListEntered)="onEnter()"
     [formGroup]="customForm"
     *ngIf="elements"
     (ngSubmit)="onCustomFormSubmit()"
@@ -17,7 +18,7 @@
         cdkDrag
       >
         <app-delete-button
-          (click)="removeElement(element.id, i)"
+          (click)="removeElement({ id: element.id, formControl: i })"
           class="drop-field__delete-button"
         ></app-delete-button>
       </app-dynamic-form-control>
@@ -27,11 +28,14 @@
         [element]="element"
       >
         <app-delete-button
-          (click)="removeElement(element.id, i)"
+          (click)="removeElement({ id: element.id })"
           class="drop-field__delete-button"
         ></app-delete-button>
       </app-button>
     </ng-container>
+    <div class="drop-field__default-text" *ngIf="isVisibleDefaultAnimation">
+      Move elements here to create a Form!!!
+    </div>
   </form>
   <div class="drop-section__control-buttons">
     <button mat-raised-button color="warn" (click)="clearDropField()">
