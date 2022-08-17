@@ -93,11 +93,37 @@
         <mat-label>Color</mat-label>
         <input type="color" matInput formControlName="color" />
       </mat-form-field>
+      <mat-form-field
+        *ngIf="elementStyle.options"
+        appearance="outline"
+        color="accent"
+        class="form__field"
+      >
+        <mat-label>Add option</mat-label>
+        <input matInput #options />
+        <button type="button" (click)="addOption(options)">+</button>
+      </mat-form-field>
+      <mat-form-field
+        appearance="outline"
+        *ngIf="elementStyle.options"
+        color="accent"
+      >
+        <mat-label>Options</mat-label>
+        <mat-select>
+          <mat-option [value]="elementStyle.placeholderText">
+            {{ elementStyle.placeholderText }}
+          </mat-option>
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <button
       [disabled]="this.styleForm.invalid"
       mat-raised-button
       color="accent"
+      class="form__submit-button"
     >
       Apply
     </button>

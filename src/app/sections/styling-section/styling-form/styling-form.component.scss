@@ -7,14 +7,20 @@
     grid-template-columns: repeat(3, auto);
     gap: 10px;
   }
-  button {
+  &__submit-button {
     width: 100%;
     padding: 10px 0px;
     font-size: 25px;
+    transition: all 0.3s ease 0s;
     @include buttonHover;
   }
   &__bottom-inputs {
     display: flex;
     justify-content: space-between;
+  }
+  &__field {
+    button {
+      font-size: 50px;
+    }
   }
 }

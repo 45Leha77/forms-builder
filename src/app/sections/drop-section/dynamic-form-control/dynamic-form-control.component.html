@@ -27,5 +27,13 @@
     (change)="onChange(checkbox.value)"
     #checkbox
   ></app-checkbox>
+  <app-select
+    [element]="element"
+    class="drop-field__element"
+    *ngIf="element.title === 'select'"
+    (change)="onChange(select.value)"
+    #select
+  ></app-select>
+
   <ng-content></ng-content>
 </ng-container>

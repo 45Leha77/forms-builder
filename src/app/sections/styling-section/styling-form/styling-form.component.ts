@@ -14,6 +14,8 @@ import { getElementStyleByTitle } from '../../State/elements.selector';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StylingFormComponent {
+  private elementStyle: ElementStyle | null = null;
+  public options: string[] = [];
   public styleForm: FormGroup = new FormGroup({
     placeholderText: new FormControl(null, [Validators.min(1)]),
     width: new FormControl(null, [Validators.required, Validators.min(1)]),
@@ -25,7 +27,6 @@ export class StylingFormComponent {
     color: new FormControl(null, [Validators.minLength(1)]),
     label: new FormControl(null, [Validators.min(1)]),
   });
-  private elementStyle: ElementStyle | null = null;
 
   public elementStyle$: Observable<ElementStyle | undefined> = this.store.pipe(
     select(getElementStyleByTitle),
@@ -33,6 +34,7 @@ export class StylingFormComponent {
       if (style) {
         this.elementStyle = style;
         this.updateForm(style);
+        style.options ? (this.options = [...style.options]) : [];
       }
     })
   );
@@ -47,6 +49,7 @@ export class StylingFormComponent {
       const elementStyle: ElementStyle = {
         ...this.elementStyle,
         ...this.styleForm.value,
+        options: this.options,
       };
       this.store.dispatch(editElement({ elementStyle }));
     }
@@ -62,6 +65,12 @@ export class StylingFormComponent {
       fontSize: data.fontSize,
       fontWeight: data.fontWeight,
       color: data.color,
+      label: data.label,
     });
+  }
+
+  public addOption(options: HTMLInputElement): void {
+    this.options.push(options.value);
+    options.value = '';
   }
 }

@@ -4,6 +4,7 @@
   *ngIf="element"
   [ngStyle]="element | styles"
   (click)="onButtonClick()"
+  disableRipple="true"
 >
   {{ element.placeholderText }}
 </button>

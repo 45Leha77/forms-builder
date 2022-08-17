@@ -14,4 +14,5 @@ export interface ElementStyle {
   fontWeight?: FontWeights;
   color?: string;
   label?: string;
+  options?: string[];
 }

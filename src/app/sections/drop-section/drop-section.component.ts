@@ -17,7 +17,7 @@ export class DropSectionComponent implements OnInit {
   public elements: ElementStyle[] = [];
   public customForm: FormGroup = new FormGroup({});
   public isVisibleDefaultAnimation: boolean = false;
-  public formControlsNumber: number = 0;
+  private formControlsNumber: number = 0;
 
   ngOnInit(): void {
     const elements: string | null = localStorage.getItem('Form');
@@ -118,7 +118,9 @@ export class DropSectionComponent implements OnInit {
 
   private restoreForm(elements: ElementStyle[]): void {
     elements.forEach((element: ElementStyle) => {
-      return this.addFormControl(this.customForm, element);
+      if (element.title !== 'button') {
+        return this.addFormControl(this.customForm, element);
+      }
     });
   }
 
