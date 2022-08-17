@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: whitesmoke;
+  color: $mainWhiteColor;
   height: fit-content;
   min-height: 300px;
   width: 100%;
@@ -13,4 +13,5 @@
   &__static-text {
     font-size: 25px;
   }
+  
 }

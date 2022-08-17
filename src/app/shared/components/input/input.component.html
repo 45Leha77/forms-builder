@@ -1,0 +1,8 @@
+<input
+  [placeholder]="element.placeholderText"
+  [required]="element.required"
+  [ngStyle]="element | styles"
+  *ngIf="element"
+  (change)="onChange(input.value)"
+  #input
+/>

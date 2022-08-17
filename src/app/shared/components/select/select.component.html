@@ -1,0 +1,14 @@
+<select
+  *ngIf="element"
+  [ngStyle]="element | styles"
+  [required]="element.required"
+  (change)="onChange(select.value)"
+  #select
+>
+  <option>
+    {{ element.placeholderText }}
+  </option>
+  <option *ngFor="let option of element.options" [value]="option">
+    {{ option }}
+  </option>
+</select>

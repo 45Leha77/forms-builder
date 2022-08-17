@@ -35,6 +35,7 @@
     },
     {
       "title": "radio-input",
+      "label": "label",
       "width": "50",
       "required": false
     },
@@ -43,6 +44,18 @@
       "label": "label",
       "width": "50",
       "required": false
+    },
+    {
+      "title": "select",
+      "placeholderText": "Select Option",
+      "width": "200",
+      "height": "70",
+      "borderStyle": "none",
+      "color": "",
+      "fontSize": "20",
+      "fontWeight": "300",
+      "required": false,
+      "options": ["first", "second"]
     }
   ],
   "users": [

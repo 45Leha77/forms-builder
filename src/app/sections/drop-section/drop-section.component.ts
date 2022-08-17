@@ -2,7 +2,6 @@ import {
   CdkDragDrop,
   copyArrayItem,
   moveItemInArray,
-  CdkDragExit,
 } from '@angular/cdk/drag-drop';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -17,17 +16,21 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
 export class DropSectionComponent implements OnInit {
   public elements: ElementStyle[] = [];
   public customForm: FormGroup = new FormGroup({});
+  public isVisibleDefaultAnimation: boolean = false;
   private formControlsNumber: number = 0;
 
   ngOnInit(): void {
-    const elements = localStorage.getItem('Form');
+    const elements: string | null = localStorage.getItem('Form');
     if (elements) {
       this.elements = JSON.parse(elements);
       this.restoreForm(this.elements);
     }
+    if (this.elements.length < 1) {
+      this.toggleDefaultAnimation(true);
+    }
   }
 
-  public drop(event: CdkDragDrop<ElementStyle[]>): void {
+  public onDrop(event: CdkDragDrop<ElementStyle[]>): void {
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
@@ -41,16 +44,32 @@ export class DropSectionComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+      const currentElementIndex: number = event.currentIndex;
+      const element: ElementStyle = event.container.data[currentElementIndex];
+      this.elements[currentElementIndex] = {
+        ...this.elements[currentElementIndex],
+        id: this.setUniqueID(),
+      };
+      if (element.title !== 'button') {
+        this.addFormControl(this.customForm, element);
+        this.elements[currentElementIndex] = {
+          ...this.elements[currentElementIndex],
+          formControl: `${this.formControlsNumber}`,
+        };
+      }
     }
-    const element: ElementStyle = {
-      ...event.container.data[event.currentIndex],
-      id: this.setUniqueID(),
-    };
-    this.addFormControl(this.customForm, element);
+    console.log('drop', this.elements);
+  }
+
+  public onEnter(): void {
+    this.toggleDefaultAnimation(false);
+    console.log('enter', this.elements);
   }
 
   public onCustomFormSubmit(): void {
-    console.log(this.customForm.value);
+    if (this.customForm.valid) {
+      console.log(this.customForm.value);
+    }
   }
 
   public saveDropField(): void {
@@ -65,27 +84,44 @@ export class DropSectionComponent implements OnInit {
       this.customForm.removeControl(`${i}`);
     }
     this.clearArray(this.elements);
-    this.removeFromLocalStorage('Form');
+    localStorage.removeItem('Form');
+    this.formControlsNumber = 0;
+    this.toggleDefaultAnimation(true);
+  }
+
+  public removeElement({
+    id,
+    formControl,
+  }: {
+    id: string | undefined;
+    formControl?: number;
+  }): void {
+    this.elements = this.elements.filter((element) => element.id !== id);
+    this.customForm.removeControl(`${formControl}`);
+    if (formControl) {
+      this.formControlsNumber--;
+    }
+    if (this.elements.length < 1) {
+      this.toggleDefaultAnimation(true);
+    }
   }
 
   private addFormControl(form: FormGroup, element: ElementStyle): void {
-    if (element.title !== 'button') {
-      form.addControl(`${this.formControlsNumber}`, new FormControl());
-      this.formControlsNumber++;
-      if (element.required) {
-        this.customForm.addValidators(Validators.required);
-      }
+    form.addControl(`${this.formControlsNumber}`, new FormControl());
+    if (element.required) {
+      form.controls[`${this.formControlsNumber}`].setValidators(
+        Validators.required
+      );
     }
+    this.formControlsNumber++;
   }
 
   private restoreForm(elements: ElementStyle[]): void {
     elements.forEach((element: ElementStyle) => {
-      return this.addFormControl(this.customForm, element);
+      if (element.title !== 'button') {
+        return this.addFormControl(this.customForm, element);
+      }
     });
-  }
-
-  private removeFromLocalStorage(item: string): void {
-    localStorage.removeItem(item);
   }
 
   private clearArray(array: any[]): void {
@@ -98,7 +134,7 @@ export class DropSectionComponent implements OnInit {
     )}`;
   }
 
-  public exit(event: CdkDragExit<ElementStyle[]>) {
-    console.log(event);
+  private toggleDefaultAnimation(isVisible: boolean): void {
+    this.isVisibleDefaultAnimation = isVisible;
   }
 }

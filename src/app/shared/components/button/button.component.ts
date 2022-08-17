@@ -14,20 +14,8 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  @Input() public element!: ElementStyle;
+  @Input() public element: ElementStyle | null = null;
   @Output() public submit: EventEmitter<void> = new EventEmitter<void>();
-
-  public setInputStyle() {
-    let styles = {
-      color: `${this.element.color}`,
-      width: `${this.element.width}px`,
-      height: `${this.element.height}px`,
-      borderStyle: `${this.element.borderStyle}`,
-      fontSize: `${this.element.fontSize}px`,
-      fontWeight: `${this.element.fontWeight}`,
-    };
-    return styles;
-  }
 
   public onButtonClick() {
     return this.submit.emit();

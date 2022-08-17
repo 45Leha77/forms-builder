@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ElementStyle } from 'src/app/models/ElementStyle';
 
@@ -16,7 +16,7 @@ import { ElementStyle } from 'src/app/models/ElementStyle';
   ],
 })
 export class DynamicFormControlComponent implements ControlValueAccessor {
-  @Input() element!: ElementStyle;
+  @Input() element: ElementStyle | null = null;
 
   public onChange!: (value: string) => void;
   public writeValue(obj: any): void {
