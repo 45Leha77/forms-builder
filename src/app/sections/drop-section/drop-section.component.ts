@@ -17,7 +17,7 @@ export class DropSectionComponent implements OnInit {
   public elements: ElementStyle[] = [];
   public customForm: FormGroup = new FormGroup({});
   public isVisibleDefaultAnimation: boolean = false;
-  private formControlsNumber: number = 0;
+  public formControlsNumber: number = 0;
 
   ngOnInit(): void {
     const elements: string | null = localStorage.getItem('Form');
@@ -44,27 +44,32 @@ export class DropSectionComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
-      const element: ElementStyle = event.container.data[event.currentIndex];
-      this.elements[event.currentIndex] = {
-        ...this.elements[event.currentIndex],
+      const currentElementIndex: number = event.currentIndex;
+      const element: ElementStyle = event.container.data[currentElementIndex];
+      this.elements[currentElementIndex] = {
+        ...this.elements[currentElementIndex],
         id: this.setUniqueID(),
       };
       if (element.title !== 'button') {
         this.addFormControl(this.customForm, element);
-        this.elements[event.currentIndex] = {
-          ...this.elements[event.currentIndex],
+        this.elements[currentElementIndex] = {
+          ...this.elements[currentElementIndex],
           formControl: `${this.formControlsNumber}`,
         };
       }
     }
+    console.log('drop', this.elements);
   }
 
   public onEnter(): void {
     this.toggleDefaultAnimation(false);
+    console.log('enter', this.elements);
   }
 
   public onCustomFormSubmit(): void {
-    console.log(this.customForm.value);
+    if (this.customForm.valid) {
+      console.log(this.customForm.value);
+    }
   }
 
   public saveDropField(): void {
@@ -103,10 +108,12 @@ export class DropSectionComponent implements OnInit {
 
   private addFormControl(form: FormGroup, element: ElementStyle): void {
     form.addControl(`${this.formControlsNumber}`, new FormControl());
-    this.formControlsNumber++;
     if (element.required) {
-      this.customForm.addValidators(Validators.required);
+      form.controls[`${this.formControlsNumber}`].setValidators(
+        Validators.required
+      );
     }
+    this.formControlsNumber++;
   }
 
   private restoreForm(elements: ElementStyle[]): void {

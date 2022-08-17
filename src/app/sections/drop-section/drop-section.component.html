@@ -22,6 +22,8 @@
           class="drop-field__delete-button"
         ></app-delete-button>
       </app-dynamic-form-control>
+    </ng-container>
+    <ng-container *ngFor="let element of elements">
       <app-button
         class="drop-field__button"
         *ngIf="element.title === 'button'"
